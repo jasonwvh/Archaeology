@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Archaeology</string>
+    <string name="hint_siteTitle">Title</string>
+    <string name="button_addSite">Add a new site</string>
 </resources>
