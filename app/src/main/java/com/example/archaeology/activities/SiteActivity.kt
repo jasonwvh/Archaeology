@@ -20,8 +20,6 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_site)
-        toolbarAdd.title = title
-        setSupportActionBar(toolbarAdd)
         info("Archaeology Activity started.")
 
         app = application as MainApp
@@ -42,19 +40,5 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                 toast("Please Enter a Title")
             }
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_site, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.item_cancel -> {
-                finish()
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 }
