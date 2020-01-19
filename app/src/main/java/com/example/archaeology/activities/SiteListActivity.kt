@@ -22,12 +22,22 @@ class SiteListActivity : AppCompatActivity(), SiteListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_site_list)
         app = application as MainApp
+
         toolbar.title = title
         setSupportActionBar(toolbar)
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = SiteAdapter(app.sites.findAll(), this)
+        loadSites()
+    }
+
+    fun showSites(sites:List<SiteModel>) {
+        recyclerView.adapter = SiteAdapter(sites, this)
+        recyclerView.adapter?.notifyDataSetChanged()
+    }
+
+    private fun loadSites() {
+        showSites(app.sites.findAll())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -47,7 +57,7 @@ class SiteListActivity : AppCompatActivity(), SiteListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        recyclerView.adapter?.notifyDataSetChanged()
+        loadSites()
         super.onActivityResult(requestCode, resultCode, data)
     }
 }
