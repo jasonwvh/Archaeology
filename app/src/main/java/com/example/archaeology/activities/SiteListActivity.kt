@@ -20,6 +20,8 @@ class SiteListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_site_list)
         app = application as MainApp
+        toolbar.title = title
+        setSupportActionBar(toolbar)
 
         toolbar.title = title
         setSupportActionBar(toolbar)
@@ -42,8 +44,7 @@ class SiteListActivity : AppCompatActivity() {
     }
 }
 
-class SiteAdapter constructor(private var sites: List<SiteModel>) :
-    RecyclerView.Adapter<SiteAdapter.MainHolder>() {
+class SiteAdapter constructor(private var sites: List<SiteModel>) : RecyclerView.Adapter<SiteAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
