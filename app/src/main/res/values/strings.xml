@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Archaeology</string>
-    <string name="hint_siteTitle">Title</string>
-    <string name="hint_siteDescription">Description </string>
-    <string name="button_addSite">Add a new site</string>
-    <string name="menu_addSite">Add</string>
-    <string name="menu_cancelSite">Cancel</string>
+  <string name="app_name">Site</string>
+  <string name="hint_siteTitle">Site Title</string>
+  <string name="hint_siteDescription">Description</string>
+  <string name="button_addSite">Add Site</string>
+  <string name="menu_addSite">Add</string>
+  <string name="menu_cancelSite">Cancel</string>
 </resources>
