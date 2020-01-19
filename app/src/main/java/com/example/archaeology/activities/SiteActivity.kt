@@ -15,6 +15,7 @@ import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 import com.example.archaeology.main.MainApp
 import com.example.archaeology.models.SiteModel
+import org.jetbrains.anko.intentFor
 
 class SiteActivity : AppCompatActivity(), AnkoLogger {
 
@@ -64,6 +65,10 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
 
         btnSelectImage.setOnClickListener() {
             showImagePicker(this, IMAGE_REQUEST)
+        }
+
+        btnAddSiteLocation.setOnClickListener {
+            startActivity(intentFor<MapsActivity>())
         }
     }
 
