@@ -14,6 +14,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 import com.example.archaeology.main.MainApp
+import com.example.archaeology.models.Location
 import com.example.archaeology.models.SiteModel
 import org.jetbrains.anko.intentFor
 
@@ -22,6 +23,8 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
     var site = SiteModel()
     lateinit var app: MainApp
     val IMAGE_REQUEST = 1
+    val LOCATION_REQUEST = 2
+    //var location = Location(52.245696, -7.139102, 15f)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +71,13 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
         }
 
         btnAddSiteLocation.setOnClickListener {
-            startActivity(intentFor<MapsActivity>())
+            val location = Location(52.245696, -7.139102, 15f)
+            if (site.zoom != 0f) {
+                location.lat = site.lat
+                location.lng = site.lng
+                location.zoom = site.zoom
+            }
+            startActivityForResult(intentFor<MapsActivity>().putExtra("location", location), LOCATION_REQUEST)
         }
     }
 
@@ -94,6 +103,14 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                     site.image = data.getData().toString()
                     siteImage.setImageBitmap(readImage(this, resultCode, data))
                     btnSelectImage.setText(R.string.change_site_image)
+                }
+            }
+            LOCATION_REQUEST -> {
+                if (data != null) {
+                    val location = data.extras?.getParcelable<Location>("location")!!
+                    site.lat = location.lat
+                    site.lng = location.lng
+                    site.zoom = location.zoom
                 }
             }
         }
