@@ -12,8 +12,8 @@ class MainApp : Application(), AnkoLogger {
     override fun onCreate() {
         super.onCreate()
         info("Site started")
-        sites.add(SiteModel("One", "About one..."))
-        sites.add(SiteModel("Two", "About two..."))
-        sites.add(SiteModel("Three", "About three..."))
+        //sites.add(SiteModel("One", "About one..."))
+        //sites.add(SiteModel("Two", "About two..."))
+        //sites.add(SiteModel("Three", "About three..."))
     }
 }

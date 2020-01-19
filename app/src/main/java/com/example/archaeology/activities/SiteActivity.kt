@@ -29,6 +29,8 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                 for (i in app.sites.indices) {
                     info("Sites[$i]:${this.app.sites[i]}")
                 }
+                setResult(AppCompatActivity.RESULT_OK)
+                finish()
             }
             else {
                 toast("Please Enter a Title")

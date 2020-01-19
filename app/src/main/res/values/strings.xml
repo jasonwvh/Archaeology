@@ -3,4 +3,5 @@
     <string name="hint_siteTitle">Title</string>
     <string name="hint_siteDescription">Description </string>
     <string name="button_addSite">Add a new site</string>
+    <string name="menu_addSite">Add</string>
 </resources>
