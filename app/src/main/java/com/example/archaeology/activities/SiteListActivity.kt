@@ -1,5 +1,6 @@
 package com.example.archaeology.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
@@ -43,5 +44,10 @@ class SiteListActivity : AppCompatActivity(), SiteListener {
 
     override fun onSiteClick(site: SiteModel) {
         startActivityForResult(intentFor<SiteActivity>().putExtra("site_edit", site), AppCompatActivity.RESULT_OK)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        recyclerView.adapter?.notifyDataSetChanged()
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }
