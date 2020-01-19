@@ -4,6 +4,8 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.archaeology.main.MainApp
 import com.example.archaeology.R
@@ -18,7 +20,11 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_site)
+        toolbarAdd.title = title
+        setSupportActionBar(toolbarAdd)
         info("Archaeology Activity started.")
+
+        app = application as MainApp
 
         btnAdd.setOnClickListener() {
             site.title = siteTitle.text.toString()
@@ -36,5 +42,19 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                 toast("Please Enter a Title")
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_site, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.item_cancel -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
