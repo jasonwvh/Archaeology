@@ -40,20 +40,20 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
         if (intent.hasExtra("site_edit")) {
             edit = true
             site = intent.extras?.getParcelable<SiteModel>("site_edit")!!
-            siteTitle.setText(site.title)
-            description.setText(site.description)
+            siteName.setText(site.name)
+            siteDescription.setText(site.description)
             siteImage.setImageBitmap(readImageFromPath(this, site.image))
             if (site.image != null) {
-                chooseImage.setText(R.string.change_site_image)
+                btnSelectImage.setText(R.string.change_site_image)
             }
-            btnAdd.setText(R.string.save_site)
+            btnAddSite.setText(R.string.save_site)
         }
 
-        btnAdd.setOnClickListener() {
-            site.title = siteTitle.text.toString()
-            site.description = description.text.toString()
-            if (site.title.isEmpty()) {
-                toast(R.string.enter_site_title)
+        btnAddSite.setOnClickListener() {
+            site.name = siteName.text.toString()
+            site.description = siteDescription.text.toString()
+            if (site.name.isEmpty()) {
+                toast(R.string.enter_site_name)
             } else {
                 if (edit) {
                     app.sites.update(site.copy())
@@ -61,16 +61,16 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                     app.sites.create(site.copy())
                 }
             }
-            info("add Button Pressed: $siteTitle")
+            info("add Button Pressed: $siteName")
             setResult(AppCompatActivity.RESULT_OK)
             finish()
         }
 
-        chooseImage.setOnClickListener {
+        btnSelectImage.setOnClickListener {
             showImagePicker(this, IMAGE_REQUEST)
         }
 
-        siteLocation.setOnClickListener {
+        btnSelectSiteLocation.setOnClickListener {
             val location = Location(52.245696, -7.139102, 15f)
             if (site.zoom != 0f) {
                 location.lat = site.lat
@@ -108,7 +108,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                 if (data != null) {
                     site.image = data.getData().toString()
                     siteImage.setImageBitmap(readImage(this, resultCode, data))
-                    chooseImage.setText(R.string.change_site_image)
+                    btnSelectImage.setText(R.string.change_site_image)
                 }
             }
             LOCATION_REQUEST -> {

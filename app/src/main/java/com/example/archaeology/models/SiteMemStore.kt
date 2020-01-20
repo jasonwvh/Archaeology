@@ -2,6 +2,7 @@ package com.example.archaeology.models
 
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
+import com.example.archaeology.models.SiteModel
 
 var lastId = 0L
 
@@ -26,7 +27,7 @@ class SiteMemStore : SiteStore, AnkoLogger {
   override fun update(site: SiteModel) {
     var foundSite: SiteModel? = sites.find { p -> p.id == site.id }
     if (foundSite != null) {
-      foundSite.title = site.title
+      foundSite.name = site.name
       foundSite.description = site.description
       foundSite.image = site.image
       foundSite.lat = site.lat
@@ -34,6 +35,11 @@ class SiteMemStore : SiteStore, AnkoLogger {
       foundSite.zoom = site.zoom
       logAll();
     }
+  }
+
+  override fun findById(id:Long) : SiteModel? {
+    val foundSite: SiteModel? = sites.find { it.id == id }
+    return foundSite
   }
 
   override fun delete(site: SiteModel) {

@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.archaeology.R
+import com.example.archaeology.helpers.readImageFromPath
 import com.example.archaeology.main.MainApp
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -23,7 +24,7 @@ class SiteMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
         map.uiSettings.setZoomControlsEnabled(true)
         app.sites.findAll().forEach {
             val loc = LatLng(it.lat, it.lng)
-            val options = MarkerOptions().title(it.title).position(loc)
+            val options = MarkerOptions().title(it.name).position(loc)
             map.setOnMarkerClickListener(this)
             map.addMarker(options).tag = it.id
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, it.zoom))
@@ -69,8 +70,12 @@ class SiteMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
-        currentTitle.text = marker.title
-        return false
+        val tag = marker.tag as Long
+        val site = app.sites.findById(tag)
+        currentName.text = site!!.name
+        currentDescription.text = site!!.description
+        currentImage.setImageBitmap(readImageFromPath(this, site.image))
+        return true
     }
 
 }

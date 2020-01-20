@@ -1,21 +1,27 @@
 <resources>
-    <string name="app_name">Site</string>
-    <string name="hint_siteTitle">Site Title</string>
-    <string name="hint_siteDescription">Description </string>
+    <string name="app_name">Archaeology Fieldwork</string>
+    <string name="hint_siteName">Site name</string>
+    <string name="hint_siteDescription">Description for the site</string>
+
     <string name="button_addSite">Add Site</string>
+    <string name="button_addImage">Add Image</string>
+    <string name="button_setLocation">Set Location</string>
+
     <string name="menu_addSite">Add</string>
     <string name="menu_cancelSite">Cancel</string>
-    <string name="enter_site_title"> Please enter a Site Title </string>
-    <string name="save_site"> Save Site </string>
-    <string name="button_addImage"> Add Image </string>
+    <string name="menu_deleteSite">Delete</string>
+
+    <string name="enter_site_name">Please enter a name for the site</string>
+    <string name="save_site">Save site</string>
+
     <string name="select_site_image">Select site image</string>
     <string name="change_site_image">Change site image</string>
-    <string name="button_location">Set Location</string>
+
     <string name="title_activity_map">Map</string>
-    <string name="menu_deleteSite">Delete site</string>
     <string name="title_activity_site_maps">Map of All Sites</string>
+
     <string name="site_image_placeholder">Site Image</string>
-    <string name="site_title_placeholder">Site Title</string>
-    <string name="site_description_placeholder">Site Description</string>
+    <string name="site_title_placeholder">Site Name</string>
+    <string name="site_description_placeholder">Description for the site</string>
 </resources>
 

@@ -30,8 +30,8 @@ class SiteAdapter constructor(private var sites: List<SiteModel>,
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(site: SiteModel, listener: SiteListener) {
-            itemView.siteTitle.text = site.title
-            itemView.description.text = site.description
+            itemView.siteName.text = site.name
+            itemView.siteDescription.text = site.description
             itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, site.image))
             itemView.setOnClickListener { listener.onSiteClick(site) }
         }

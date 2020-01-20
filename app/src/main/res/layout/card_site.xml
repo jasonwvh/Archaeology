@@ -20,7 +20,7 @@
             android:layout_marginRight="16dp"/>
 
         <TextView
-            android:id="@+id/siteTitle"
+            android:id="@+id/siteName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -28,10 +28,10 @@
             android:textSize="30sp"/>
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/siteDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/siteTitle"
+            android:layout_below="@id/siteName"
             android:layout_toRightOf="@+id/imageIcon"/>
 
     </RelativeLayout>
