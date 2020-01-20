@@ -6,7 +6,8 @@ import java.io.*
 
 fun write(context: Context, fileName: String, data: String) {
     try {
-        val outputStreamWriter = OutputStreamWriter(context.openFileOutput(fileName, Context.MODE_PRIVATE))
+        val outputStreamWriter =
+            OutputStreamWriter(context.openFileOutput(fileName, Context.MODE_PRIVATE))
         outputStreamWriter.write(data)
         outputStreamWriter.close()
     } catch (e: Exception) {

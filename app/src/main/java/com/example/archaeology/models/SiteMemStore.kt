@@ -24,7 +24,7 @@ class SiteMemStore : SiteStore, AnkoLogger {
   }
 
   override fun update(site: SiteModel) {
-    val foundSite: SiteModel? = sites.find { p -> p.id == site.id }
+    var foundSite: SiteModel? = sites.find { p -> p.id == site.id }
     if (foundSite != null) {
       foundSite.title = site.title
       foundSite.description = site.description
@@ -32,15 +32,11 @@ class SiteMemStore : SiteStore, AnkoLogger {
       foundSite.lat = site.lat
       foundSite.lng = site.lng
       foundSite.zoom = site.zoom
-      logAll()
+      logAll();
     }
   }
 
-  override fun delete(site: SiteModel) {
-    sites.remove(site)
-  }
-
-  internal fun logAll() {
+  fun logAll() {
     sites.forEach { info("${it}") }
   }
 }

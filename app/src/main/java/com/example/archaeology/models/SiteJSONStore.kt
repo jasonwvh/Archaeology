@@ -1,11 +1,11 @@
 package com.example.archaeology.models
 
 import android.content.Context
-import com.example.archaeology.helpers.*
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.jetbrains.anko.AnkoLogger
+import com.example.archaeology.helpers.*
 import java.util.*
 
 val JSON_FILE = "sites.json"
@@ -38,7 +38,6 @@ class SiteJSONStore : SiteStore, AnkoLogger {
         serialize()
     }
 
-
     override fun update(site: SiteModel) {
         val sitesList = findAll() as ArrayList<SiteModel>
         var foundSite: SiteModel? = sitesList.find { p -> p.id == site.id }
@@ -61,10 +60,5 @@ class SiteJSONStore : SiteStore, AnkoLogger {
     private fun deserialize() {
         val jsonString = read(context, JSON_FILE)
         sites = Gson().fromJson(jsonString, listType)
-    }
-
-    override fun delete(site: SiteModel) {
-        sites.remove(site)
-        serialize()
     }
 }

@@ -32,7 +32,7 @@
 
         <activity
             android:name=".activities.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_map"></activity>
         <activity android:name=".activities.SiteActivity"></activity>
         <activity android:name=".activities.SiteListActivity">
             <intent-filter>

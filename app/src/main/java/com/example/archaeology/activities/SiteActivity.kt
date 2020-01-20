@@ -1,24 +1,22 @@
 package com.example.archaeology.activities
 
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.annotation.RequiresApi
+import kotlinx.android.synthetic.main.activity_site.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.toast
 import com.example.archaeology.R
 import com.example.archaeology.helpers.readImage
 import com.example.archaeology.helpers.readImageFromPath
 import com.example.archaeology.helpers.showImagePicker
-import kotlinx.android.synthetic.main.activity_site.*
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
-import org.jetbrains.anko.toast
 import com.example.archaeology.main.MainApp
 import com.example.archaeology.models.Location
 import com.example.archaeology.models.SiteModel
-import org.jetbrains.anko.intentFor
 
 class SiteActivity : AppCompatActivity(), AnkoLogger {
 
@@ -26,8 +24,6 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
     lateinit var app: MainApp
     val IMAGE_REQUEST = 1
     val LOCATION_REQUEST = 2
-    //var location = Location(52.245696, -7.139102, 15f)
-    var edit = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,26 +33,25 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
         info("Site Activity started..")
 
         app = application as MainApp
-
-        var edit = true
+        var edit = false
 
         if (intent.hasExtra("site_edit")) {
             edit = true
             site = intent.extras?.getParcelable<SiteModel>("site_edit")!!
             siteTitle.setText(site.title)
             description.setText(site.description)
-            btnAddSite.setText(R.string.save_site)
             siteImage.setImageBitmap(readImageFromPath(this, site.image))
             if (site.image != null) {
-                btnSelectImage.setText(R.string.change_site_image)
+                chooseImage.setText(R.string.change_site_image)
             }
+            btnAdd.setText(R.string.save_site)
         }
 
-        btnAddSite.setOnClickListener() {
+        btnAdd.setOnClickListener() {
             site.title = siteTitle.text.toString()
             site.description = description.text.toString()
             if (site.title.isEmpty()) {
-                toast(R.string.enter_site_name)
+                toast(R.string.enter_site_title)
             } else {
                 if (edit) {
                     app.sites.update(site.copy())
@@ -69,11 +64,11 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             finish()
         }
 
-        btnSelectImage.setOnClickListener() {
+        chooseImage.setOnClickListener {
             showImagePicker(this, IMAGE_REQUEST)
         }
 
-        btnAddSiteLocation.setOnClickListener {
+        siteLocation.setOnClickListener {
             val location = Location(52.245696, -7.139102, 15f)
             if (site.zoom != 0f) {
                 location.lat = site.lat
@@ -86,16 +81,11 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_site, menu)
-        if (edit && menu != null) menu.getItem(0).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.item_delete -> {
-                app.sites.delete(site)
-                finish()
-            }
             R.id.item_cancel -> {
                 finish()
             }
@@ -110,7 +100,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                 if (data != null) {
                     site.image = data.getData().toString()
                     siteImage.setImageBitmap(readImage(this, resultCode, data))
-                    btnSelectImage.setText(R.string.change_site_image)
+                    chooseImage.setText(R.string.change_site_image)
                 }
             }
             LOCATION_REQUEST -> {

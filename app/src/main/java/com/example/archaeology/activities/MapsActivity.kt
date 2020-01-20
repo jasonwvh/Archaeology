@@ -2,18 +2,17 @@ package com.example.archaeology.activities
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.archaeology.R
 import com.example.archaeology.models.Location
-import com.google.android.gms.maps.model.Marker
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerDragListener, GoogleMap.OnMarkerClickListener {
 
@@ -31,18 +30,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
+        map.setOnMarkerDragListener(this)
+        map.setOnMarkerClickListener(this)
         val loc = LatLng(location.lat, location.lng)
         val options = MarkerOptions()
             .title("Site")
-            .snippet("GPS: " + loc.toString())
+            .snippet("GPS : " + loc.toString())
             .draggable(true)
             .position(loc)
         map.addMarker(options)
-        map.setOnMarkerDragListener(this)
-        map.setOnMarkerClickListener(this)
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, location.zoom))
     }
-
 
     override fun onMarkerDragStart(marker: Marker) {
     }
@@ -56,17 +54,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         location.zoom = map.cameraPosition.zoom
     }
 
-    override fun onMarkerClick(marker: Marker): Boolean {
-        val loc = LatLng(location.lat, location.lng)
-        marker.setSnippet("GPS: " + loc.toString())
-        return false
-    }
-
     override fun onBackPressed() {
         val resultIntent = Intent()
         resultIntent.putExtra("location", location)
         setResult(Activity.RESULT_OK, resultIntent)
         finish()
         super.onBackPressed()
+    }
+
+    override fun onMarkerClick(marker: Marker): Boolean {
+        val loc = LatLng(location.lat, location.lng)
+        marker.setSnippet("GPS : " + loc.toString())
+        return false
     }
 }
