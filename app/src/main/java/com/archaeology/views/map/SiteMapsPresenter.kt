@@ -1,23 +1,19 @@
 package com.archaeology.views.map
 
-import com.archaeology.main.MainApp
+import com.archaeology.models.SiteModel
+import com.archaeology.views.BasePresenter
+import com.archaeology.views.BaseView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
-class SiteMapPresenter(val view: SiteMapsView) {
-    var app: MainApp
+class SiteMapPresenter(view: BaseView) : BasePresenter(view) {
 
-    init {
-        app = view.application as MainApp
-    }
-
-    fun doPopulateMap(map: GoogleMap) {
+    fun doPopulateMap(map: GoogleMap, Sites: List<SiteModel>) {
         map.uiSettings.setZoomControlsEnabled(true)
-        map.setOnMarkerClickListener(view)
-        app.sites.findAll().forEach {
+        Sites.forEach {
             val loc = LatLng(it.lat, it.lng)
             val options = MarkerOptions().title(it.name).position(loc)
             map.addMarker(options).tag = it.id
@@ -27,7 +23,12 @@ class SiteMapPresenter(val view: SiteMapsView) {
 
     fun doMarkerSelected(marker: Marker) {
         val tag = marker.tag as Long
-        val site = app.sites.findById(tag)
-        if (site != null) view.showSite(site)
+        val Site = app.sites.findById(tag)
+        if (Site != null) view?.showSite(Site)
+
+    }
+
+    fun loadSites() {
+        view?.showSites(app.sites.findAll())
     }
 }

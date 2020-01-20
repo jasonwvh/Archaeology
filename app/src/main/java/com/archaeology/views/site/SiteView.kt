@@ -1,7 +1,6 @@
 package com.archaeology.views.site
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -12,6 +11,7 @@ import com.example.archaeology.R
 import com.archaeology.helpers.readImageFromPath
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BaseView
+import kotlinx.android.synthetic.main.content_site_maps.*
 
 class SiteView : BaseView(), AnkoLogger {
 
@@ -21,14 +21,17 @@ class SiteView : BaseView(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_site)
+        super.init(toolbarAdd)
 
-        init(toolbarAdd)
+        presenter = initPresenter (SitePresenter(this)) as SitePresenter
 
-        presenter = initPresenter(SitePresenter(this)) as SitePresenter
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync {
+            presenter.doConfigureMap(it)
+            it.setOnMapClickListener { presenter.doSetLocation() }
+        }
 
         btnSelectImage.setOnClickListener { presenter.doSelectImage() }
-
-        btnSelectSiteLocation.setOnClickListener { presenter.doSetLocation() }
     }
 
     override fun showSite(site: SiteModel) {
@@ -38,6 +41,8 @@ class SiteView : BaseView(), AnkoLogger {
         if (site.image != null) {
             btnSelectImage.setText(R.string.change_site_image)
         }
+        lat.setText("%.6f".format(site.lat))
+        lng.setText("%.6f".format(site.lng))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -70,5 +75,31 @@ class SiteView : BaseView(), AnkoLogger {
 
     override fun onBackPressed() {
         presenter.doCancel()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mapView.onDestroy()
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        mapView.onLowMemory()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mapView.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mapView.onResume()
+        presenter.doResartLocationUpdates()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        mapView.onSaveInstanceState(outState)
     }
 }

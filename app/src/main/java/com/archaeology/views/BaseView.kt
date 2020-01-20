@@ -59,12 +59,16 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         basePresenter?.doRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-    open fun showSite(site: SiteModel) {}
-    open fun showSites(sites: List<SiteModel>) {}
+    open fun showSite(Site: SiteModel) {}
+    open fun showSites(Sites: List<SiteModel>) {}
     open fun showProgress() {}
     open fun hideProgress() {}
 }

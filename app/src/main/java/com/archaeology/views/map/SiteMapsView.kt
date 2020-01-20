@@ -1,40 +1,43 @@
 package com.archaeology.views.map
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.archaeology.R
 import com.archaeology.helpers.readImageFromPath
-import com.archaeology.main.MainApp
 import com.archaeology.models.SiteModel
-import com.google.android.gms.maps.CameraUpdateFactory
+import com.archaeology.views.BaseView
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
-
 import kotlinx.android.synthetic.main.activity_site_maps.*
 import kotlinx.android.synthetic.main.content_site_maps.*
 
-class SiteMapsView : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
+class SiteMapsView : BaseView(), GoogleMap.OnMarkerClickListener {
 
     lateinit var presenter: SiteMapPresenter
+    lateinit var map : GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_site_maps)
-        setSupportActionBar(toolbar)
-        presenter = SiteMapPresenter(this)
+        super.init(toolbar)
+
+        presenter = initPresenter (SiteMapPresenter(this)) as SiteMapPresenter
 
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync {
-            presenter.doPopulateMap(it)
+            map = it
+            map.setOnMarkerClickListener(this)
+            presenter.loadSites()
         }
     }
 
-    fun showSite(site: SiteModel) {
+    override fun showSite(site: SiteModel) {
         currentName.text = site.name
         currentDescription.text = site.description
         currentImage.setImageBitmap(readImageFromPath(this, site.image))
+    }
+
+    override fun showSites(sites: List<SiteModel>) {
+        presenter.doPopulateMap(map, sites)
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
