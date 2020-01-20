@@ -11,7 +11,6 @@ import com.example.archaeology.R
 import com.archaeology.helpers.readImageFromPath
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BaseView
-import kotlinx.android.synthetic.main.content_site_maps.*
 
 class SiteView : BaseView(), AnkoLogger {
 
@@ -23,7 +22,7 @@ class SiteView : BaseView(), AnkoLogger {
         setContentView(R.layout.activity_site)
         super.init(toolbarAdd)
 
-        presenter = initPresenter (SitePresenter(this)) as SitePresenter
+        presenter = initPresenter(SitePresenter(this)) as SitePresenter
 
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync {
