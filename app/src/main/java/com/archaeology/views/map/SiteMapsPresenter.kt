@@ -18,7 +18,7 @@ class SiteMapPresenter(view: BaseView) : BasePresenter(view) {
         Sites.forEach {
             val loc = LatLng(it.location.lat, it.location.lng)
             val options = MarkerOptions().title(it.name).position(loc)
-            map.addMarker(options).tag = it.id
+            map.addMarker(options).tag = it
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, it.location.zoom))
         }
     }
@@ -26,7 +26,7 @@ class SiteMapPresenter(view: BaseView) : BasePresenter(view) {
     fun doMarkerSelected(marker: Marker) {
         val tag = marker.tag as Long
         doAsync {
-            val site = app.sites.findById(tag)
+            val site = marker.tag as SiteModel
             uiThread {
                 if (site != null) view?.showSite(site)
             }

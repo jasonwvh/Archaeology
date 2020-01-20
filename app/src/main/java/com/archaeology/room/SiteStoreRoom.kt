@@ -36,4 +36,7 @@ class SiteStoreRoom(val context: Context) : SiteStore {
     override fun delete(site: SiteModel) {
         dao.deleteSite(site)
     }
+
+    override fun clear() {
+    }
 }

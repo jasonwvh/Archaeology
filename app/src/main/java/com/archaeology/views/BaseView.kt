@@ -11,6 +11,7 @@ import com.archaeology.views.login.LoginView
 import com.archaeology.views.map.SiteMapsView
 import com.archaeology.views.site.SiteView
 import com.archaeology.views.sitelist.SiteListView
+import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.AnkoLogger
 
 val IMAGE_REQUEST = 1
@@ -48,6 +49,10 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
         toolbar.title = title
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            toolbar.title = "${title}: ${user.email}"
+        }
     }
 
     override fun onDestroy() {

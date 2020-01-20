@@ -45,7 +45,12 @@ class SiteMemStore : SiteStore, AnkoLogger {
     return foundSite
   }
 
+  override fun clear() {
+    sites.clear()
+  }
+
   fun logAll() {
     sites.forEach { info("${it}") }
   }
+
 }

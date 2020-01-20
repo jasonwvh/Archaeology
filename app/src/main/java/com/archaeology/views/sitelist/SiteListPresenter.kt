@@ -4,6 +4,7 @@ import com.archaeology.models.SiteModel
 import com.archaeology.views.BasePresenter
 import com.archaeology.views.BaseView
 import com.archaeology.views.VIEW
+import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -22,6 +23,7 @@ class SiteListPresenter(view: BaseView): BasePresenter(view) {
     }
 
     fun doLogout() {
+        FirebaseAuth.getInstance().signOut()
         view?.navigateTo(VIEW.LOGIN)
     }
 
