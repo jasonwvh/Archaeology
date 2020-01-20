@@ -13,6 +13,7 @@ import org.jetbrains.anko.startActivityForResult
 import com.example.archaeology.R
 import com.example.archaeology.main.MainApp
 import com.example.archaeology.models.SiteModel
+import org.jetbrains.anko.startActivity
 
 class SiteListActivity : AppCompatActivity(), SiteListener {
 
@@ -47,7 +48,8 @@ class SiteListActivity : AppCompatActivity(), SiteListener {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.item_add -> startActivityForResult<SiteActivity>(0)
+            R.id.item_add -> startActivityForResult<SiteActivity>(200)
+            R.id.item_map -> startActivity<SiteMapsActivity>()
         }
         return super.onOptionsItemSelected(item)
     }
