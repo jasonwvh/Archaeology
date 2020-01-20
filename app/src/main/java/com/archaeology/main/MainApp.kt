@@ -3,7 +3,7 @@ package com.archaeology.main
 import android.app.Application
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
-import com.archaeology.models.SiteJSONStore
+import com.archaeology.models.json.SiteJSONStore
 import com.archaeology.models.SiteStore
 
 class MainApp : Application(), AnkoLogger {

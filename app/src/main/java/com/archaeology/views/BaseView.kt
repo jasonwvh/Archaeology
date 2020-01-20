@@ -71,4 +71,5 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
     open fun showSites(Sites: List<SiteModel>) {}
     open fun showProgress() {}
     open fun hideProgress() {}
+    open fun showLocation(latitude: Double, longitude: Double) {}
 }

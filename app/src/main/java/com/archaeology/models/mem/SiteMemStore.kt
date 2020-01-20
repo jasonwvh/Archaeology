@@ -1,5 +1,7 @@
-package com.archaeology.models
+package com.archaeology.models.mem
 
+import com.archaeology.models.SiteModel
+import com.archaeology.models.SiteStore
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 

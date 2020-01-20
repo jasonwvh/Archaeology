@@ -1,4 +1,4 @@
-package com.archaeology.models
+package com.archaeology.models.json
 
 import android.content.Context
 import com.google.gson.Gson
@@ -6,6 +6,8 @@ import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.jetbrains.anko.AnkoLogger
 import com.archaeology.helpers.*
+import com.archaeology.models.SiteModel
+import com.archaeology.models.SiteStore
 import java.util.*
 
 val JSON_FILE = "sites.json"
@@ -63,7 +65,9 @@ class SiteJSONStore : SiteStore, AnkoLogger {
     }
 
     private fun serialize() {
-        val jsonString = gsonBuilder.toJson(sites, listType)
+        val jsonString = gsonBuilder.toJson(sites,
+            listType
+        )
         write(context, JSON_FILE, jsonString)
     }
 
