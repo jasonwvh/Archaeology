@@ -52,6 +52,10 @@ class SiteJSONStore : SiteStore, AnkoLogger {
         serialize()
     }
 
+    override fun delete(site: SiteModel) {
+        sites.remove(site)
+    }
+
     private fun serialize() {
         val jsonString = gsonBuilder.toJson(sites, listType)
         write(context, JSON_FILE, jsonString)

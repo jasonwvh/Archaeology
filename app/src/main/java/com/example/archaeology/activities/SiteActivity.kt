@@ -25,6 +25,8 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
     val IMAGE_REQUEST = 1
     val LOCATION_REQUEST = 2
 
+    var edit = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_site)
@@ -33,7 +35,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
         info("Site Activity started..")
 
         app = application as MainApp
-        var edit = false
+        var edit = true
 
         if (intent.hasExtra("site_edit")) {
             edit = true
@@ -81,11 +83,17 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_site, menu)
+        if (edit && menu != null)
+            menu.getItem(0).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
+            R.id.item_delete -> {
+                app.sites.delete(site)
+                finish()
+            }
             R.id.item_cancel -> {
                 finish()
             }
