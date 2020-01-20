@@ -11,6 +11,8 @@
     <string name="menu_cancelSite">Cancel</string>
     <string name="menu_saveSite">Save</string>
     <string name="menu_deleteSite">Delete</string>
+    <string name="menu_showMap">Show Map</string>
+    <string name="menu_logout">Logout</string>
 
     <string name="enter_site_name">Please enter a name for the site</string>
     <string name="save_site">Save site</string>
@@ -20,6 +22,10 @@
 
     <string name="title_activity_map">Map</string>
     <string name="title_activity_site_maps">Map of All Sites</string>
+    <string name="title_activity_login">Singup/Login to Archaeology Fieldwork</string>
+    <string name="title_activity_site">Add Site</string>
+    <string name="title_activity_site_list">List of Archaeological Sites</string>
+    <string name="title_activity_edit_location">Change the location</string>
 
     <string name="site_image_placeholder">Site Image</string>
     <string name="site_name_placeholder">Site Name</string>

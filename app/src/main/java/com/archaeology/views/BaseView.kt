@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar
 import com.archaeology.models.Location
 import com.archaeology.models.SiteModel
 import com.archaeology.views.editlocation.EditLocationView
+import com.archaeology.views.login.LoginView
 import com.archaeology.views.map.SiteMapsView
 import com.archaeology.views.site.SiteView
 import com.archaeology.views.sitelist.SiteListView
@@ -16,7 +17,7 @@ val IMAGE_REQUEST = 1
 val LOCATION_REQUEST = 2
 
 enum class VIEW {
-    LOCATION, SITE, MAPS, LIST
+    LOCATION, SITE, MAPS, LIST, LOGIN
 }
 
 open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
@@ -30,6 +31,7 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
             VIEW.SITE -> intent = Intent(this, SiteView::class.java)
             VIEW.MAPS -> intent = Intent(this, SiteMapsView::class.java)
             VIEW.LIST -> intent = Intent(this, SiteListView::class.java)
+            VIEW.LOGIN -> intent = Intent(this, LoginView::class.java)
         }
         if (key != "") {
             intent.putExtra(key, value)
@@ -42,9 +44,10 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
         return presenter
     }
 
-    fun init(toolbar: Toolbar) {
+    fun init(toolbar: Toolbar, upEnabled: Boolean) {
         toolbar.title = title
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
     }
 
     override fun onDestroy() {
@@ -70,7 +73,7 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
 
     open fun showSite(Site: SiteModel) {}
     open fun showSites(Sites: List<SiteModel>) {}
+    open fun showLocation(location: Location) {}
     open fun showProgress() {}
     open fun hideProgress() {}
-    open fun showLocation(location: Location) {}
 }

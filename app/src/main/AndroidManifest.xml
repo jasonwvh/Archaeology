@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.archaeology">
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality.
-    -->
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -16,26 +12,54 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name="com.archaeology.views.map.SiteMapsView"
-            android:label="@string/title_activity_site_maps"
-            android:theme="@style/AppTheme"></activity>
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.archaeology.views.editlocation.EditLocationView"
-            android:label="@string/title_activity_map" />
-        <activity android:name="com.archaeology.views.site.SiteView" />
-        <activity android:name="com.archaeology.views.sitelist.SiteListView">
-
+            android:name="com.archaeology.views.login.LoginView"
+            android:label="@string/title_activity_login"
+            android:launchMode="singleTop">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.archaeology.views.sitelist.SiteListView"
+            android:label="@string/title_activity_site_list"
+            android:launchMode="singleTop"></activity>
+
+        <activity
+            android:name="com.archaeology.views.site.SiteView"
+            android:label="@string/title_activity_site">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.archaeology.views.sitelist.SiteListView" />
+        </activity>
+
+        <activity
+            android:name="com.archaeology.views.editlocation.EditLocationView"
+            android:label="@string/title_activity_edit_location">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.archaeology.views.site.SiteView" />
+        </activity>
+
+        <activity
+            android:name="com.archaeology.views.map.SiteMapsView"
+            android:label="@string/title_activity_site_maps"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.archaeology.views.sitelist.SiteListView" />
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+
     </application>
 
 </manifest>

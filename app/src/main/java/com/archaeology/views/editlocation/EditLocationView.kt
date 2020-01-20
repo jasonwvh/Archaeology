@@ -42,9 +42,4 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
         presenter.doUpdateMarker(marker)
         return false
     }
-
-    override fun showLocation(latitude: Double, longitude: Double) {
-        lat.setText("%.6f".format(latitude))
-        lng.setText("%.6f".format(longitude))
-    }
 }

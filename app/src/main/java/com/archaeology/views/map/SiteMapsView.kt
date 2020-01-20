@@ -18,7 +18,7 @@ class SiteMapsView : BaseView(), GoogleMap.OnMarkerClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_site_maps)
-        super.init(toolbar)
+        super.init(toolbar, true)
 
         presenter = initPresenter (SiteMapPresenter(this)) as SiteMapPresenter
 

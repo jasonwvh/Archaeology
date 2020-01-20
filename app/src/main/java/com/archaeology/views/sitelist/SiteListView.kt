@@ -39,6 +39,7 @@ class SiteListView : BaseView(), SiteListener {
         when (item?.itemId) {
             R.id.item_add -> presenter.doAddSite()
             R.id.item_map -> presenter.doShowSitesMap()
+            R.id.item_logout ->presenter.doLogout()
         }
         return super.onOptionsItemSelected(item)
     }
