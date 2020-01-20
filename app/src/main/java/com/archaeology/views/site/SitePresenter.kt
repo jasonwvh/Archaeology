@@ -14,6 +14,8 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class SitePresenter(view: BaseView) : BasePresenter(view) {
 
@@ -21,8 +23,7 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
     var site = SiteModel()
     var defaultLocation = Location(52.245696, -7.139102, 15f)
     var edit = false;
-    var locationService: FusedLocationProviderClient =
-        LocationServices.getFusedLocationProviderClient(view)
+    var locationService: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(view)
     val locationRequest = createDefaultLocationRequest()
 
     init {
@@ -40,7 +41,7 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
     @SuppressLint("MissingPermission")
     fun doSetCurrentLocation() {
         locationService.lastLocation.addOnSuccessListener {
-            locationUpdate(it.latitude, it.longitude)
+            locationUpdate(Location(it.latitude, it.longitude))
         }
     }
 
@@ -50,7 +51,7 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
             override fun onLocationResult(locationResult: LocationResult?) {
                 if (locationResult != null && locationResult.locations != null) {
                     val l = locationResult.locations.last()
-                    locationUpdate(l.latitude, l.longitude)
+                    locationUpdate(Location(l.latitude, l.longitude))
                 }
             }
         }
@@ -60,45 +61,43 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
     }
 
 
-    override fun doRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
+    override fun doRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         if (isPermissionGranted(requestCode, grantResults)) {
             doSetCurrentLocation()
         } else {
-            locationUpdate(defaultLocation.lat, defaultLocation.lng)
+            locationUpdate(defaultLocation)
         }
     }
 
     fun doConfigureMap(m: GoogleMap) {
         map = m
-        locationUpdate(site.lat, site.lng)
+        locationUpdate(site.location)
     }
 
-    fun locationUpdate(lat: Double, lng: Double) {
-        site.lat = lat
-        site.lng = lng
-        site.zoom = 15f
+    fun locationUpdate(location: Location) {
+        site.location = location
+        site.location.zoom = 15f
         map?.clear()
-        map?.uiSettings?.setZoomControlsEnabled(true)
-        val options = MarkerOptions().title(site.name).position(LatLng(site.lat, site.lng))
+        val options = MarkerOptions().title(site.name).position(LatLng(site.location.lat, site.location.lng))
         map?.addMarker(options)
-        map?.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(site.lat, site.lng), site.zoom))
-        view?.showSite(site)
+        map?.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(site.location.lat, site.location.lng), site.location.zoom))
+        view?.showLocation(site.location)
     }
 
 
     fun doAddOrSave(name: String, description: String) {
         site.name = name
         site.description = description
-        if (edit) {
-            app.sites.update(site)
-        } else {
-            app.sites.create(site)
+        doAsync {
+            if (edit) {
+                app.sites.update(site)
+            } else {
+                app.sites.create(site)
+            }
+            uiThread {
+                view?.finish()
+            }
         }
-        view?.finish()
     }
 
     fun doCancel() {
@@ -106,8 +105,12 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
     }
 
     fun doDelete() {
-        app.sites.delete(site)
-        view?.finish()
+        doAsync {
+            app.sites.delete(site)
+            uiThread {
+                view?.finish()
+            }
+        }
     }
 
     fun doSelectImage() {
@@ -117,12 +120,7 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
     }
 
     fun doSetLocation() {
-        view?.navigateTo(
-            VIEW.LOCATION,
-            LOCATION_REQUEST,
-            "location",
-            Location(site.lat, site.lng, site.zoom)
-        )
+        view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", Location(site.location.lat, site.location.lng, site.location.zoom))
     }
 
     override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
@@ -133,10 +131,8 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
             }
             LOCATION_REQUEST -> {
                 val location = data.extras?.getParcelable<Location>("location")!!
-                site.lat = location.lat
-                site.lng = location.lng
-                site.zoom = location.zoom
-                locationUpdate(site.lat, site.lng)
+                site.location = location
+                locationUpdate(location)
             }
         }
     }

@@ -9,6 +9,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.toast
 import com.example.archaeology.R
 import com.archaeology.helpers.readImageFromPath
+import com.archaeology.models.Location
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BaseView
 
@@ -40,8 +41,12 @@ class SiteView : BaseView(), AnkoLogger {
         if (site.image != null) {
             btnSelectImage.setText(R.string.change_site_image)
         }
-        lat.setText("%.6f".format(site.lat))
-        lng.setText("%.6f".format(site.lng))
+        this.showLocation(site.location)
+    }
+
+    override fun showLocation(location: Location) {
+        lat.setText("%.6f".format(location.lat))
+        lng.setText("%.6f".format(location.lng))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
