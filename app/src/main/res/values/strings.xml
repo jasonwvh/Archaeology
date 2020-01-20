@@ -22,7 +22,7 @@
     <string name="title_activity_site_maps">Map of All Sites</string>
 
     <string name="site_image_placeholder">Site Image</string>
-    <string name="site_title_placeholder">Site Name</string>
+    <string name="site_name_placeholder">Site Name</string>
     <string name="site_description_placeholder">Description for the site</string>
 </resources>
 

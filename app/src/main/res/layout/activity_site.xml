@@ -35,104 +35,70 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/appBarLayout"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp">
 
 
             <Button
                 android:id="@+id/btnSelectImage"
-                android:layout_width="180dp"
+                android:layout_width="379dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="19dp"
                 android:background="@color/colorAccent"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:text="@string/button_addImage"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/siteDescription" />
-
-            <Button
-                android:id="@+id/btnSelectSiteLocation"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@color/colorAccent"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:stateListAnimator="@null"
-                android:text="@string/button_setLocation"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/siteDescription" />
-
-            <Button
-                android:id="@+id/btnAddSite"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@color/colorAccent"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:stateListAnimator="@null"
-                android:text="@string/button_addSite"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnSelectSiteLocation" />
 
             <EditText
                 android:id="@+id/siteDescription"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="249dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:hint="@string/hint_siteDescription"
-                android:autofillHints="@string/hint_siteDescription"
                 android:inputType="text"
                 android:maxLength="25"
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toStartOf="@+id/lat"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/siteName" />
 
             <EditText
                 android:id="@+id/siteName"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="16dp"
+                android:layout_width="392dp"
+                android:layout_height="47dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="72dp"
-                android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:hint="@string/hint_siteName"
-                android:autofillHints="@string/hint_siteName"
                 android:inputType="text"
                 android:maxLength="25"
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+                <requestFocus/>
+            </EditText>
 
             <TextView
                 android:id="@+id/lat"
-                android:layout_width="wrap_content"
+                android:layout_width="95dp"
                 android:layout_height="19dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="32dp"
                 android:text="00.000000"
                 android:textAlignment="textEnd"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -140,29 +106,38 @@
 
             <TextView
                 android:id="@+id/lng"
-                android:layout_width="wrap_content"
+                android:layout_width="92dp"
                 android:layout_height="19dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 android:text="00.000000"
                 android:textAlignment="textEnd"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lat" />
 
             <ImageView
-                android:id="@+id/siteImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="@string/hint_siteName"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/placemarkImage"
+                android:layout_width="396dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnAddSite"
+                app:layout_constraintTop_toBottomOf="@+id/btnSelectImage"
                 app:srcCompat="@mipmap/ic_launcher" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="363dp"
+                android:layout_height="162dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="181dp"
+                android:layout_marginBottom="87dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
