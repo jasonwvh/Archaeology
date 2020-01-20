@@ -1,11 +1,10 @@
-package com.example.archaeology.main
+package com.archaeology.main
 
 import android.app.Application
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
-import com.example.archaeology.models.SiteJSONStore
-import com.example.archaeology.models.SiteMemStore
-import com.example.archaeology.models.SiteStore
+import com.archaeology.models.SiteJSONStore
+import com.archaeology.models.SiteStore
 
 class MainApp : Application(), AnkoLogger {
 

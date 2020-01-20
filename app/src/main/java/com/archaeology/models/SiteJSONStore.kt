@@ -1,11 +1,11 @@
-package com.example.archaeology.models
+package com.archaeology.models
 
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.jetbrains.anko.AnkoLogger
-import com.example.archaeology.helpers.*
+import com.archaeology.helpers.*
 import java.util.*
 
 val JSON_FILE = "sites.json"
@@ -52,13 +52,14 @@ class SiteJSONStore : SiteStore, AnkoLogger {
         serialize()
     }
 
+    override fun delete(site: SiteModel) {
+        sites.remove(site)
+        serialize()
+    }
+
     override fun findById(id:Long) : SiteModel? {
         val foundSite: SiteModel? = sites.find { it.id == id }
         return foundSite
-    }
-
-    override fun delete(site: SiteModel) {
-        sites.remove(site)
     }
 
     private fun serialize() {

@@ -1,4 +1,4 @@
-package com.example.archaeology.helpers
+package com.archaeology.helpers
 
 import android.content.Context
 import android.util.Log

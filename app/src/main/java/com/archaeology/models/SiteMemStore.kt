@@ -1,8 +1,7 @@
-package com.example.archaeology.models
+package com.archaeology.models
 
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
-import com.example.archaeology.models.SiteModel
 
 var lastId = 0L
 
@@ -37,13 +36,13 @@ class SiteMemStore : SiteStore, AnkoLogger {
     }
   }
 
+  override fun delete(site: SiteModel) {
+    sites.remove(site)
+  }
+
   override fun findById(id:Long) : SiteModel? {
     val foundSite: SiteModel? = sites.find { it.id == id }
     return foundSite
-  }
-
-  override fun delete(site: SiteModel) {
-    sites.remove(site)
   }
 
   fun logAll() {

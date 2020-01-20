@@ -1,8 +1,8 @@
-package com.example.archaeology.models
+package com.archaeology.models
 
 interface SiteStore {
-  fun findAll(): List<SiteModel>
   fun findById(id: Long): SiteModel?
+  fun findAll(): List<SiteModel>
   fun create(site: SiteModel)
   fun update(site: SiteModel)
   fun delete(site: SiteModel)
