@@ -22,7 +22,7 @@
 
     <string name="title_activity_map">Map</string>
     <string name="title_activity_site_maps">Map of All Sites</string>
-    <string name="title_activity_login">Singup/Login to Archaeology Fieldwork</string>
+    <string name="title_activity_login">Signup/Login to Archaeology Fieldwork</string>
     <string name="title_activity_site">Add Site</string>
     <string name="title_activity_site_list">List of Archaeological Sites</string>
     <string name="title_activity_edit_location">Change the location</string>
