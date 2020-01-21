@@ -2,8 +2,8 @@ package com.archaeology.views.login
 
 import android.os.Bundle
 import android.view.View
+import com.archaeology.R
 import com.archaeology.views.BaseView
-import com.example.archaeology.R
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.toast
 

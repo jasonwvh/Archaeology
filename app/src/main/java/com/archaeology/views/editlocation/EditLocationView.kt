@@ -3,10 +3,10 @@ package com.archaeology.views.editlocation
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.archaeology.R
 import com.archaeology.views.BaseView
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
-import com.example.archaeology.R
 import kotlinx.android.synthetic.main.activity_edit_location.*
 
 class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.OnMarkerClickListener {
@@ -20,7 +20,7 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
 
         presenter = initPresenter(EditLocationPresenter(this)) as EditLocationPresenter
 
-        mapView.onCreate(savedInstanceState);
+        mapView.onCreate(savedInstanceState)
         mapView.getMapAsync {
             it.setOnMarkerDragListener(this)
             it.setOnMarkerClickListener(this)
@@ -45,8 +45,8 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
     override fun onMarkerDragStart(marker: Marker) {}
 
     override fun onMarkerDrag(marker: Marker) {
-        lat.setText("%.6f".format(marker.position.latitude))
-        lng.setText("%.6f".format(marker.position.longitude))
+        lat.text = "%.6f".format(marker.position.latitude)
+        lng.text = "%.6f".format(marker.position.longitude)
     }
 
     override fun onMarkerDragEnd(marker: Marker) {

@@ -1,19 +1,24 @@
 package com.archaeology.models
 
 import android.content.Context
+import android.graphics.Bitmap
+import com.archaeology.helpers.readImageFromPath
 import com.archaeology.models.SiteModel
 import com.archaeology.models.SiteStore
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import org.jetbrains.anko.AnkoLogger
-import com.archaeology.models.SiteModel
-import com.archaeology.models.SiteStore
+import java.io.ByteArrayOutputStream
+import java.io.File
 
 class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
 
     val sites = ArrayList<SiteModel>()
     lateinit var userId: String
     lateinit var db: DatabaseReference
+    lateinit var st: StorageReference
 
     override fun findAll(): List<SiteModel> {
         return sites
@@ -30,6 +35,7 @@ class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
             site.fbId = key
             sites.add(site)
             db.child("users").child(userId).child("sites").child(key).setValue(site)
+            updateImage(site)
         }
     }
 
@@ -43,7 +49,9 @@ class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
         }
 
         db.child("users").child(userId).child("sites").child(site.fbId).setValue(site)
-
+        if ((site.image.length) > 0 && (site.image[0] != 'h')) {
+            updateImage(site)
+        }
     }
 
     override fun delete(site: SiteModel) {
@@ -53,6 +61,32 @@ class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
 
     override fun clear() {
         sites.clear()
+    }
+
+    fun updateImage(site: SiteModel) {
+        if (site.image != "") {
+            val fileName = File(site.image)
+            val imageName = fileName.name
+
+            var imageRef = st.child(userId + '/' + imageName)
+            val baos = ByteArrayOutputStream()
+            val bitmap = readImageFromPath(context, site.image)
+
+            bitmap?.let {
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                val data = baos.toByteArray()
+                val uploadTask = imageRef.putBytes(data)
+                uploadTask.addOnFailureListener {
+                    println(it.message)
+                }.addOnSuccessListener { taskSnapshot ->
+                    taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener {
+                        site.image = it.toString()
+                        db.child("users").child(userId).child("sites").child(site.fbId)
+                            .setValue(site)
+                    }
+                }
+            }
+        }
     }
 
     fun fetchSites(sitesReady: () -> Unit) {
@@ -66,6 +100,7 @@ class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
         }
         userId = FirebaseAuth.getInstance().currentUser!!.uid
         db = FirebaseDatabase.getInstance().reference
+        st = FirebaseStorage.getInstance().reference
         sites.clear()
         db.child("users").child(userId).child("sites").addListenerForSingleValueEvent(valueEventListener)
     }
