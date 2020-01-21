@@ -13,8 +13,8 @@ class MainApp : Application(), AnkoLogger {
   override fun onCreate() {
     super.onCreate()
     //sites = SiteJSONStore(applicationContext)
-    //sites = SiteStoreRoom(applicationContext)
-    sites = SiteFireStore(applicationContext)
+    sites = SiteStoreRoom(applicationContext)
+    //sites = SiteFireStore(applicationContext)
     info("Site started")
   }
 }
