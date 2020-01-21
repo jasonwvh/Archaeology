@@ -48,11 +48,11 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
     fun init(toolbar: Toolbar, upEnabled: Boolean) {
         toolbar.title = title
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             toolbar.title = "${title}: ${user.email}"
         }
+        supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
     }
 
     override fun onDestroy() {
@@ -68,17 +68,13 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         basePresenter?.doRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-    open fun showSite(Site: SiteModel) {}
-    open fun showSites(Sites: List<SiteModel>) {}
-    open fun showLocation(location: Location) {}
+    open fun showSite(site: SiteModel) {}
+    open fun showSites(sites: List<SiteModel>) {}
+    open fun showLocation(location : Location) {}
     open fun showProgress() {}
     open fun hideProgress() {}
 }

@@ -22,11 +22,6 @@ class SiteListPresenter(view: BaseView): BasePresenter(view) {
         view?.navigateTo(VIEW.MAPS)
     }
 
-    fun doLogout() {
-        FirebaseAuth.getInstance().signOut()
-        view?.navigateTo(VIEW.LOGIN)
-    }
-
     fun loadSites() {
         doAsync {
             val sites = app.sites.findAll()
@@ -34,5 +29,10 @@ class SiteListPresenter(view: BaseView): BasePresenter(view) {
                 view?.showSites(sites)
             }
         }
+    }
+
+    fun doLogout() {
+        FirebaseAuth.getInstance().signOut()
+        view?.navigateTo(VIEW.LOGIN)
     }
 }

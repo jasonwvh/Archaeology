@@ -1,5 +1,4 @@
-package com.archaeology.room
-
+package com.archaeology.models.room
 
 import android.content.Context
 import androidx.room.Room

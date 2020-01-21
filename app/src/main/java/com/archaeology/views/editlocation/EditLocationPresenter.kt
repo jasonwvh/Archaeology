@@ -1,6 +1,5 @@
 package com.archaeology.views.editlocation
 
-import android.app.Activity
 import android.content.Intent
 import com.archaeology.models.Location
 import com.archaeology.views.BasePresenter
