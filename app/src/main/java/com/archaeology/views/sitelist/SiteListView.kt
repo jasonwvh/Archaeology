@@ -2,12 +2,13 @@ package com.archaeology.views.sitelist
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_site_list.*
-import com.example.archaeology.R
+import com.archaeology.R
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BaseView
+import kotlinx.android.synthetic.main.activity_site_list.*
 
 class SiteListView : BaseView(), SiteListener {
 

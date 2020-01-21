@@ -1,12 +1,11 @@
 package com.archaeology.views.editlocation
 
 import android.os.Bundle
+import com.archaeology.R
 import com.archaeology.views.BaseView
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Marker
-import com.example.archaeology.R
-import kotlinx.android.synthetic.main.activity_site.*
 
 class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.OnMarkerClickListener {
 

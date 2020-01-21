@@ -4,14 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_site.*
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.toast
-import com.example.archaeology.R
+import com.archaeology.R
 import com.archaeology.helpers.readImageFromPath
 import com.archaeology.models.Location
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BaseView
+import kotlinx.android.synthetic.main.activity_site.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.toast
 
 class SiteView : BaseView(), AnkoLogger {
 
@@ -25,7 +25,7 @@ class SiteView : BaseView(), AnkoLogger {
 
         presenter = initPresenter(SitePresenter(this)) as SitePresenter
 
-        mapView.onCreate(savedInstanceState);
+        mapView.onCreate(savedInstanceState)
         mapView.getMapAsync {
             presenter.doConfigureMap(it)
             it.setOnMapClickListener { presenter.doSetLocation() }
@@ -45,8 +45,8 @@ class SiteView : BaseView(), AnkoLogger {
     }
 
     override fun showLocation(location: Location) {
-        lat.setText("%.6f".format(location.lat))
-        lng.setText("%.6f".format(location.lng))
+        lat.text = "%.6f".format(location.lat)
+        lng.text = "%.6f".format(location.lng)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.card_site.view.*
-import com.example.archaeology.R
+import com.archaeology.R
 import com.archaeology.helpers.readImageFromPath
 import com.archaeology.models.SiteModel
+import kotlinx.android.synthetic.main.card_site.view.*
 
 interface SiteListener {
     fun onSiteClick(site: SiteModel)
@@ -19,7 +19,7 @@ class SiteAdapter constructor(private var sites: List<SiteModel>,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
-            LayoutInflater.from(parent?.context).inflate(R.layout.card_site, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.card_site, parent, false)
         )
     }
 

@@ -1,7 +1,7 @@
 package com.archaeology.views.map
 
 import android.os.Bundle
-import com.example.archaeology.R
+import com.archaeology.R
 import com.archaeology.helpers.readImageFromPath
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BaseView
@@ -22,7 +22,7 @@ class SiteMapsView : BaseView(), GoogleMap.OnMarkerClickListener {
 
         presenter = initPresenter (SiteMapPresenter(this)) as SiteMapPresenter
 
-        mapView.onCreate(savedInstanceState);
+        mapView.onCreate(savedInstanceState)
         mapView.getMapAsync {
             map = it
             map.setOnMarkerClickListener(this)
