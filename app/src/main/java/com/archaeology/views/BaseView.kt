@@ -21,7 +21,7 @@ enum class VIEW {
     LOCATION, SITE, MAPS, LIST, LOGIN
 }
 
-open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
+open abstract class BaseView : AppCompatActivity(), AnkoLogger {
 
     var basePresenter: BasePresenter? = null
 
@@ -53,6 +53,10 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
             toolbar.title = "${title}: ${user.email}"
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            toolbar.title = "${title}: ${user.email}"
+        }
     }
 
     override fun onDestroy() {

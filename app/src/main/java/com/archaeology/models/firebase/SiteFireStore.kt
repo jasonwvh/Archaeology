@@ -1,6 +1,8 @@
 package com.archaeology.models
 
 import android.content.Context
+import com.archaeology.models.SiteModel
+import com.archaeology.models.SiteStore
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import org.jetbrains.anko.AnkoLogger
@@ -58,7 +60,7 @@ class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
             override fun onCancelled(dataSnapshot: DatabaseError) {
             }
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                dataSnapshot!!.children.mapNotNullTo(sites) { it.getValue<SiteModel>(SiteModel::class.java) }
+                dataSnapshot.children.mapNotNullTo(sites) { it.getValue<SiteModel>(SiteModel::class.java) }
                 sitesReady()
             }
         }
