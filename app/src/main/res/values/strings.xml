@@ -1,70 +1,35 @@
 <resources>
+    <string name="app_name">Archaeology Fieldwork</string>
+    <string name="hint_siteName">Site name</string>
+    <string name="hint_siteDescription">Description for the site</string>
 
-    <!--MAIN APP-->
-    <string name="app_name">ArchBuddy</string>
-    <string name="mainAppWelcomeLabel">Welcome</string>
+    <string name="button_addSite">Add Site</string>
+    <string name="button_addImage">Add Image</string>
+    <string name="button_setLocation">Set Location</string>
 
-    <!--ACCOUNT ACTIVITY-->
-    <string name="accountHeader">My Account</string>
-    <string name="accountUsernameLabel">Username: </string>
-    <string name="accountEmailLabel">Email: </string>
-    <string name="accountPasswordLabel">Password: </string>
-    <string name="accountEditButton">Edit Account</string>
+    <string name="menu_addSite">Add</string>
+    <string name="menu_cancelSite">Cancel</string>
+    <string name="menu_saveSite">Save</string>
+    <string name="menu_deleteSite">Delete</string>
+    <string name="menu_showMap">Show Map</string>
+    <string name="menu_logout">Logout</string>
 
-    <!--SITE ACTIVITY-->
-    <string name="siteNameField">Name</string>
-    <string name="siteNotesHeader">Notes</string>
-    <string name="siteLocationHeader">Location</string>
+    <string name="enter_site_name">Please enter a name for the site</string>
+    <string name="save_site">Save site</string>
 
-    <string name="siteDescriptionLabel">Description: </string>
-    <string name="siteDateVisitedLabel">Date visited: </string>
-    <string name="siteRatingLabel">Rating: </string>
+    <string name="select_site_image">Select site image</string>
+    <string name="change_site_image">Change site image</string>
 
-    <string name="siteDescriptionField">Enter description</string>
-    <string name="siteDateVisitedField">Select date of visit: </string>
+    <string name="title_activity_map">Map</string>
+    <string name="title_activity_site_maps">Map of All Sites</string>
+    <string name="title_activity_login">Archaeology Fieldwork</string>
+    <string name="title_activity_site">Add Site</string>
+    <string name="title_activity_site_list">List of Archaeological Sites</string>
+    <string name="title_activity_edit_location">Change the location</string>
 
-    <string name="siteVisitedCheckbox">Is visited</string>
-    <string name="siteEditLocationButton">Edit Location</string>
-    <string name="siteAddNoteButton">Add Note</string>
-    <string name="siteEditImageButton">Select Images</string>
-
-    <!--LOGIN ACTIVITY-->
-    <string name="loginEmailField">Email: </string>
-    <string name="loginPasswordField">Password: </string>
-    <string name="loginButton">LOG IN</string>
-    <string name="loginSignUpButton">SIGN UP</string>
-
-    <!--NOTE ACTIVITY-->
-    <string name="noteHeader">Note</string>
-
-    <!--SIGN UP ACTIVITY-->
-    <string name="signUpUsernameField">Enter a username</string>
-    <string name="signUpEmailField">Enter an email</string>
-    <string name="signUpPasswordField">Enter password</string>
-    <string name="signUpPassword2Field">Confirm password</string>
-
-    <string name="signUpButton">Sign Up</string>
-
-    <!--ACCOUNT DIALOG-->
-    <string name="accountDialogUsernameField">New username</string>
-    <string name="accountDialogEmailField">New email</string>
-    <string name="accountDialogPasswordField">New password</string>
-    <string name="accountDialogUpdateButton">Confirm</string>
-    <string name="accountDialogCancelButton">Cancel</string>
-
-    <!--NOTE DIALOG-->
-    <string name="noteDialogTitleField">Title</string>
-    <string name="noteDialogContentField">Content</string>
-    <string name="noteDialogAddButton">Save</string>
-    <string name="noteDialogCancelButton">Cancel</string>
-
-    <!--ABOUT DIALOG-->
-    <string name="aboutHeader">About</string>
-    <string name="aboutInformation">Created for Android Programming with Kotlin class</string>
-
-    <!--SITE LIST DIALOG-->
-    <string name="filterMenuSortRating">Sort by Rating</string>
-
-
+    <string name="site_image_placeholder">Site Image</string>
+    <string name="site_name_placeholder">Site Name</string>
+    <string name="site_description_placeholder">Description for the site</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
 
