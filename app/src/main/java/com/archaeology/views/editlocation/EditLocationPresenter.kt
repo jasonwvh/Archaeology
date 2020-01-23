@@ -1,6 +1,5 @@
 package com.archaeology.views.editlocation
 
-import android.app.Activity
 import android.content.Intent
 import com.archaeology.models.Location
 import com.archaeology.views.BasePresenter
@@ -13,26 +12,29 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
 
-    var location = Location()
+    private var location = Location()
+    private lateinit var map: GoogleMap
 
     init {
-        location = view.intent.extras?.getParcelable<Location>("location")!!
+        location = view.intent.extras?.getParcelable("location")!!
     }
 
-    fun doConfigureMap(map: GoogleMap) {
+    fun doConfigMap(googleMap: GoogleMap) {
+        map = googleMap
         val loc = LatLng(location.lat, location.lng)
         val options = MarkerOptions()
-            .title("Placemark")
-            .snippet("GPS : " + loc.toString())
+            .title("Hillfort")
+            .snippet("GPS : $loc")
             .draggable(true)
             .position(loc)
         map.addMarker(options)
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, location.zoom))
     }
 
-    fun doUpdateLocation(lat: Double, lng: Double) {
+    fun doUpdateLocation(lat: Double, lng: Double, zoom: Float) {
         location.lat = lat
         location.lng = lng
+        location.zoom = zoom
     }
 
     fun doSave() {
@@ -43,7 +45,10 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
     }
 
     fun doUpdateMarker(marker: Marker) {
+        location.lat = marker.position.latitude
+        location.lng = marker.position.longitude
+        location.zoom = map.cameraPosition.zoom
         val loc = LatLng(location.lat, location.lng)
-        marker.setSnippet("GPS : " + loc.toString())
+        marker.snippet = loc.toString()
     }
 }

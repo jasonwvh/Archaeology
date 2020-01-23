@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.archaeology.R
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BaseView
+import kotlinx.android.synthetic.main.drawer_main.*
 
 class SiteListView : BaseView(), SiteListener {
 
@@ -27,7 +28,7 @@ class SiteListView : BaseView(), SiteListener {
 
     override fun showSites(sites: List<SiteModel>) {
         recyclerView.adapter = SiteAdapter(sites, this)
-        recyclerView.adapter?.notifyDataSetChanged()
+        recyclerView.adapter.notifyDataSetChanged()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

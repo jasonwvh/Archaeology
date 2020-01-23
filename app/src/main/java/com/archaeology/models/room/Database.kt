@@ -1,4 +1,4 @@
-package com.archaeology.room
+package com.archaeology.models.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

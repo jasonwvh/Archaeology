@@ -7,15 +7,52 @@
     <application
         android:name=".main.MainApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path">
+
+            </meta-data>
+        </provider>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity
-            android:name=".views.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name="org.wit.hillfortapp.views.editlocation.EditLocationView"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
+            android:name=".views.main.MainView"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".views.hillfort.HillfortView"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".views.hillfortlist.HillfortListView"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".views.splash.SplashView"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,49 +61,23 @@
 
         <activity
             android:name=".views.login.LoginView"
-            android:label="@string/title_activity_login"
-            android:launchMode="singleTop">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".views.sitelist.SiteListView"
-            android:label="@string/title_activity_site_list"
-            android:launchMode="singleTop"></activity>
+            android:name=".views.signup.SignUpView"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".views.site.SiteView"
-            android:label="@string/title_activity_site">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.archaeology.views.sitelist.SiteListView" />
-        </activity>
+            android:name=".views.map.HillfortMapsView"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".views.editlocation.EditLocationView"
-            android:label="@string/title_activity_edit_location">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.archaeology.views.site.SiteView" />
-        </activity>
+            android:name=".views.navigator.NavigatorView"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".views.map.SiteMapsView"
-            android:label="@string/title_activity_site_maps"
-            android:launchMode="singleTop">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.archaeology.views.sitelist.SiteListView" />
-        </activity>
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:name=".views.more.ExtraView"
+            android:theme="@style/AppTheme.NoActionBar" />
 
 
     </application>

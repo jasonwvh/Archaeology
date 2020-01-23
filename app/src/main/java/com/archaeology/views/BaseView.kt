@@ -1,43 +1,54 @@
 package com.archaeology.views
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Parcelable
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import com.archaeology.models.Location
+import com.archaeology.helpers.constructEmailTemplate
+import com.archaeology.models.ImageModel
+import com.archaeology.models.NoteModel
 import com.archaeology.models.SiteModel
 import com.archaeology.views.editlocation.EditLocationView
 import com.archaeology.views.login.LoginView
+import com.archaeology.views.main.MainView
 import com.archaeology.views.map.SiteMapsView
+import com.archaeology.views.navigator.NavigatorView
+import com.archaeology.views.signup.SignUpView
 import com.archaeology.views.site.SiteView
 import com.archaeology.views.sitelist.SiteListView
-import com.google.firebase.auth.FirebaseAuth
+import com.google.android.gms.maps.model.LatLng
 import org.jetbrains.anko.AnkoLogger
 
 val IMAGE_REQUEST = 1
 val LOCATION_REQUEST = 2
 
 enum class VIEW {
-    LOCATION, SITE, MAPS, LIST, LOGIN
+    LOCATION, SITE, MAPS, LIST, SIGNUP, MAIN, LOGIN, NAVIGATOR
 }
 
-open abstract class BaseView : AppCompatActivity(), AnkoLogger {
+abstract class BaseView : MainView(), AnkoLogger {
 
-    var basePresenter: BasePresenter? = null
+    private var basePresenter: BasePresenter? = null
 
     fun navigateTo(view: VIEW, code: Int = 0, key: String = "", value: Parcelable? = null) {
-        var intent = Intent(this, SiteListView::class.java)
-        when (view) {
-            VIEW.LOCATION -> intent = Intent(this, EditLocationView::class.java)
-            VIEW.SITE -> intent = Intent(this, SiteView::class.java)
-            VIEW.MAPS -> intent = Intent(this, SiteMapsView::class.java)
-            VIEW.LIST -> intent = Intent(this, SiteListView::class.java)
-            VIEW.LOGIN -> intent = Intent(this, LoginView::class.java)
+        val intent: Intent = when (view) {
+            VIEW.LOCATION -> Intent(this, EditLocationView::class.java)
+            VIEW.SITE -> Intent(this, SiteView::class.java)
+            VIEW.NAVIGATOR -> Intent(this, NavigatorView::class.java)
+            VIEW.MAPS -> Intent(this, SiteMapsView::class.java)
+            VIEW.LIST -> Intent(this, SiteListView::class.java)
+            VIEW.SIGNUP -> Intent(this, SignUpView::class.java)
+            VIEW.MAIN -> Intent(this, MainView::class.java)
+            VIEW.LOGIN -> Intent(this, LoginView::class.java)
         }
         if (key != "") {
             intent.putExtra(key, value)
         }
-        startActivityForResult(intent, code)
+
+        startActivityForResult(
+            intent,
+            code,
+            ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+        )
     }
 
     fun initPresenter(presenter: BasePresenter): BasePresenter {
@@ -45,14 +56,13 @@ open abstract class BaseView : AppCompatActivity(), AnkoLogger {
         return presenter
     }
 
-    fun init(toolbar: Toolbar, upEnabled: Boolean) {
-        toolbar.title = title
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
-        val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            toolbar.title = "${title}: ${user.email}"
-        }
+    fun createShareIntent(value: Parcelable?) {
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.type = "text/plain"
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Sitey")
+        val shareMessage = constructEmailTemplate(value as SiteModel)
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+        startActivity(Intent.createChooser(shareIntent, "Choose an Application"))
     }
 
     override fun onDestroy() {
@@ -76,9 +86,12 @@ open abstract class BaseView : AppCompatActivity(), AnkoLogger {
         basePresenter?.doRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-    open fun showSite(Site: SiteModel) {}
-    open fun showSites(Sites: List<SiteModel>) {}
-    open fun showLocation(location: Location) {}
+    open fun showSite(site: SiteModel) {}
+    open fun showSites(sites: List<SiteModel>) {}
+    open fun showNotes(notes: ArrayList<NoteModel>?) {}
+    open fun showImages(images: ArrayList<ImageModel>) {}
+    open fun showUpdatedMap(latLng: LatLng) {}
     open fun showProgress() {}
     open fun hideProgress() {}
+
 }

@@ -9,7 +9,8 @@ import com.archaeology.helpers.readImageFromPath
 import com.archaeology.models.Location
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BaseView
-import kotlinx.android.synthetic.main.activity_site.*
+import kotlinx.android.synthetic.main.card_site.*
+import kotlinx.android.synthetic.main.content_site_maps.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.toast
 
@@ -35,8 +36,8 @@ class SiteView : BaseView(), AnkoLogger {
     }
 
     override fun showSite(site: SiteModel) {
-        siteName.setText(site.name)
-        siteDescription.setText(site.description)
+        siteName.text = site.name
+        siteDescription.text = site.description
         siteImage.setImageBitmap(readImageFromPath(this, site.image))
         if (site.image != null) {
             btnSelectImage.setText(R.string.change_site_image)

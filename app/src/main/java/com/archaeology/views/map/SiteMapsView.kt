@@ -2,25 +2,25 @@ package com.archaeology.views.map
 
 import android.os.Bundle
 import com.archaeology.R
-import com.archaeology.helpers.readImageFromPath
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BaseView
+import com.bumptech.glide.Glide
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
-import kotlinx.android.synthetic.main.activity_site_maps.*
 import kotlinx.android.synthetic.main.content_site_maps.*
+import kotlinx.android.synthetic.main.drawer_main.*
 
 class SiteMapsView : BaseView(), GoogleMap.OnMarkerClickListener {
 
-    lateinit var presenter: SiteMapPresenter
-    lateinit var map : GoogleMap
+    private lateinit var presenter: SiteMapsPresenter
+    lateinit var map: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_site_maps)
-        super.init(toolbar, true)
+        content_frame.removeAllViews()
+        layoutInflater.inflate(R.layout.activity_site_maps, content_frame)
 
-        presenter = initPresenter (SiteMapPresenter(this)) as SiteMapPresenter
+        presenter = initPresenter(SiteMapsPresenter(this)) as SiteMapsPresenter
 
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync {
@@ -28,12 +28,20 @@ class SiteMapsView : BaseView(), GoogleMap.OnMarkerClickListener {
             map.setOnMarkerClickListener(this)
             presenter.loadSites()
         }
+
+        bottomNavBar.menu.findItem(R.id.navigation_map).isChecked = true
     }
 
     override fun showSite(site: SiteModel) {
-        currentName.text = site.name
-        currentDescription.text = site.description
-        currentImage.setImageBitmap(readImageFromPath(this, site.image))
+        currentTitle.text = site.name
+        currentRating.rating = site.rating.toFloat()
+        if (site.images.isNotEmpty()) {
+            Glide.with(currentImage.context).load(site.images[0].uri).centerCrop()
+                .into(currentImage)
+        } else {
+            Glide.with(currentImage.context).load(R.drawable.placeholder).centerCrop()
+                .into(currentImage)
+        }
     }
 
     override fun showSites(sites: List<SiteModel>) {
