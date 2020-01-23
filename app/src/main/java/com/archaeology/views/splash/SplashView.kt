@@ -25,6 +25,6 @@ class SplashView : AppCompatActivity() {
             startActivity(Intent(this@SplashView, LoginView::class.java))
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
-        }, 4000)
+        }, 2000)
     }
 }
