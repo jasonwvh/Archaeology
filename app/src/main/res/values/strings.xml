@@ -14,22 +14,23 @@
     <!--SITE ACTIVITY-->
     <string name="siteNameField">Name</string>
     <string name="siteNotesHeader">Notes</string>
-    <string name="siteKeyInfoHeader">Key Info</string>
     <string name="siteLocationHeader">Location</string>
+
     <string name="siteDescriptionLabel">Description: </string>
-    <string name="siteDateVisitedLabel">Date Visited: </string>
-    <string name="siteDescriptionField">Enter Description…</string>
-    <string name="siteVisitedCheckbox">Is Visited</string>
-    <string name="siteDateVisitedField">Enter Date Visited…</string>
+    <string name="siteDateVisitedLabel">Date visited: </string>
     <string name="siteRatingLabel">Rating: </string>
+
+    <string name="siteDescriptionField">Enter description</string>
+    <string name="siteDateVisitedField">Select date of visit: </string>
+
+    <string name="siteVisitedCheckbox">Is visited</string>
     <string name="siteEditLocationButton">Edit Location</string>
     <string name="siteAddNoteButton">Add Note</string>
     <string name="siteEditImageButton">Select Images</string>
 
     <!--LOGIN ACTIVITY-->
-    <string name="loginEmailField">Email…</string>
-    <string name="loginPasswordField">Password…</string>
-    <string name="loginDividerLabel">or…</string>
+    <string name="loginEmailField">Email: </string>
+    <string name="loginPasswordField">Password: </string>
     <string name="loginButton">LOG IN</string>
     <string name="loginSignUpButton">SIGN UP</string>
 
@@ -37,16 +38,17 @@
     <string name="noteHeader">Note</string>
 
     <!--SIGN UP ACTIVITY-->
-    <string name="signUpUsernameField">Enter a Username</string>
-    <string name="signUpEmailField">Enter an Email</string>
-    <string name="signUpPasswordField">Enter a Password</string>
-    <string name="signUpPassword2Field">Confirm Password</string>
+    <string name="signUpUsernameField">Enter a username</string>
+    <string name="signUpEmailField">Enter an email</string>
+    <string name="signUpPasswordField">Enter password</string>
+    <string name="signUpPassword2Field">Confirm password</string>
+
     <string name="signUpButton">Sign Up</string>
 
     <!--ACCOUNT DIALOG-->
-    <string name="accountDialogUsernameField">New Username</string>
-    <string name="accountDialogEmailField">New Email</string>
-    <string name="accountDialogPasswordField">New Password</string>
+    <string name="accountDialogUsernameField">New username</string>
+    <string name="accountDialogEmailField">New email</string>
+    <string name="accountDialogPasswordField">New password</string>
     <string name="accountDialogUpdateButton">Confirm</string>
     <string name="accountDialogCancelButton">Cancel</string>
 

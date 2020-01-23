@@ -10,7 +10,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_sites"
-            android:icon="@drawable/ic_menu_castle"
+            android:icon="@drawable/ic_visited"
             android:title="My Sites" />
         <item
             android:id="@+id/nav_site_maps"
