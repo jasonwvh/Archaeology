@@ -20,7 +20,6 @@ class LoginView : BaseView(), AnkoLogger {
     private lateinit var password: EditText
     private lateinit var loginButton: Button
     private lateinit var signupButton: Button
-    private lateinit var loginDividerText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +30,6 @@ class LoginView : BaseView(), AnkoLogger {
         password = findViewById(R.id.loginPasswordInput)
         signupButton = findViewById(R.id.loginSignUpButton)
         loginButton = findViewById(R.id.loginButton)
-        loginDividerText = findViewById(R.id.loginDividerText)
 
         progressBar.visibility = View.GONE
 
@@ -66,13 +64,11 @@ class LoginView : BaseView(), AnkoLogger {
         progressBar.visibility = View.GONE
         loginButton.visibility = View.VISIBLE
         signupButton.visibility = View.VISIBLE
-        loginDividerText.visibility = View.VISIBLE
     }
 
     override fun showProgress() {
         progressBar.visibility = View.VISIBLE
         loginButton.visibility = View.GONE
         signupButton.visibility = View.GONE
-        loginDividerText.visibility = View.GONE
     }
 }

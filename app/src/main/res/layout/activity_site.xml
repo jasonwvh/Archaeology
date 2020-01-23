@@ -81,8 +81,8 @@
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="409dp"
-                android:layout_height="321dp"
+                android:layout_width="match_parent"
+                android:layout_height="380dp"
                 android:gravity="center"
                 android:orientation="vertical"
                 tools:layout_editor_absoluteX="1dp"
@@ -217,28 +217,67 @@
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginVertical="10dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="1dp"
                     android:fontFamily="sans-serif-thin"
                     android:text="@string/siteRatingLabel"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/siteRatingBar"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <RatingBar
+                    android:id="@+id/siteRatingBar"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:stepSize="1"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <RatingBar
-                android:id="@+id/siteRatingBar"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
-                android:numStars="5"
-                android:stepSize="1" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="360dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center"
+                    android:text="@string/siteLocationHeader"
+                    android:textColor="@android:color/black"
+                    android:textSize="32sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/siteMapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:adjustViewBounds="true"
+                    android:clickable="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <TextView
+                    android:id="@+id/siteCurrentLocationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/siteMapView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="280dp">
 
                 <TextView
                     android:id="@+id/noteMsg"
@@ -267,40 +306,17 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="380dp"
+                    android:layout_marginTop="24dp"
+                    android:scrollbars="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/noteMsg" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerNotes"
-                android:layout_width="match_parent"
-                android:layout_height="280dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:scrollbars="vertical" />
-
-            <TextView
-                android:layout_marginTop="25dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="center"
-                android:text="@string/siteLocationHeader"
-                android:textColor="@android:color/black"
-                android:textSize="32sp" />
-
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/siteMapView"
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:adjustViewBounds="true"
-                android:clickable="false" />
-
-            <TextView
-                android:id="@+id/siteCurrentLocationText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp" />
         </LinearLayout>
     </ScrollView>
 

@@ -42,11 +42,6 @@ open class HomeView : AppCompatActivity(), AnkoLogger {
             setHomeAsUpIndicator(R.drawable.ic_menu)
         }
 
-        if (intent.hasExtra("user")) {
-            val user: FirebaseUser = intent.extras?.getParcelable("user")!!
-            mainActivityUsernameText.text = user.email!!.split('@')[0]
-        }
-
         mDrawerLayout = findViewById(R.id.drawer_layout)
         val navigationView: NavigationView = findViewById(R.id.nav_view)
 

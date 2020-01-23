@@ -8,7 +8,6 @@
     <group
         android:id="@+id/menu_top"
         android:checkableBehavior="single">
-
         <item
             android:id="@+id/nav_sites"
             android:icon="@drawable/ic_menu_castle"
@@ -21,23 +20,17 @@
             android:id="@+id/nav_add"
             android:icon="@drawable/ic_menu_plus"
             android:title="Add a Site" />
-        <item
-            android:id="@+id/nav_account"
-            android:icon="@drawable/ic_menu_account"
-            android:title="My Account" />
+
     </group>
 
     <group
         android:id="@+id/menu_bottom"
         android:checkableBehavior="single">
-
         <item
-            android:id="@+id/nav_stats"
-            android:icon="@drawable/ic_menu_stats"
-            android:title="Stats" />
-
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_menu_account"
+            android:title="My Account" />
         <item
-
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_about"
             android:title="About" />

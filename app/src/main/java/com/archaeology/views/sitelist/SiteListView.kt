@@ -31,8 +31,6 @@ class SiteListView : BaseView(), SiteListener {
         siteListFloatingBtn.setOnClickListener {
             presenter.doAddSite()
         }
-
-        //bottomNavBar.menu.findItem(R.id.navigation_sites).isChecked = true
     }
 
     override fun showSites(sites: List<SiteModel>) {
