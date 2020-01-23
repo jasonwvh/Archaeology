@@ -1,7 +1,7 @@
 package com.archaeology.views.editlocation
 
 import android.content.Intent
-import com.archaeology.models.Location
+import com.archaeology.models.site.Location
 import com.archaeology.views.BasePresenter
 import com.archaeology.views.BaseView
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -23,7 +23,7 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
         map = googleMap
         val loc = LatLng(location.lat, location.lng)
         val options = MarkerOptions()
-            .title("Hillfort")
+            .title("Site")
             .snippet("GPS : $loc")
             .draggable(true)
             .position(loc)

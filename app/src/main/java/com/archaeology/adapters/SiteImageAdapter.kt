@@ -1,4 +1,4 @@
-package com.archaeology.views.site
+package com.archaeology.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.archaeology.R
 
-import com.archaeology.models.NoteModel
+import com.archaeology.models.site.NoteModel
 
 import kotlinx.android.synthetic.main.recycle_item_note.view.*
-
 
 interface NoteListener {
     fun onNoteClick(noteModel: NoteModel)

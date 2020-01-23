@@ -5,10 +5,10 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import com.archaeology.helpers.*
-import com.archaeology.models.ImageModel
-import com.archaeology.models.Location
-import com.archaeology.models.NoteModel
-import com.archaeology.models.SiteModel
+import com.archaeology.models.site.ImageModel
+import com.archaeology.models.site.Location
+import com.archaeology.models.site.NoteModel
+import com.archaeology.models.site.SiteModel
 import com.archaeology.views.BasePresenter
 import com.archaeology.views.BaseView
 import com.archaeology.views.VIEW

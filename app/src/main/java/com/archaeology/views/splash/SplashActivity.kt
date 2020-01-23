@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.archaeology.R
 import com.archaeology.views.login.LoginView
 
-class SplashView : AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class SplashView : AppCompatActivity() {
 
         // 4second splash time
         Handler().postDelayed({
-            startActivity(Intent(this@SplashView, LoginView::class.java))
+            startActivity(Intent(this@SplashActivity, LoginView::class.java))
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
         }, 2000)

@@ -1,11 +1,11 @@
-package com.archaeology.views.site
+package com.archaeology.adapters
 
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
-import com.archaeology.models.ImageModel
+import com.archaeology.models.site.ImageModel
 import com.bumptech.glide.Glide
 
 class SiteImageAdapter(private var images: ArrayList<ImageModel>, val context: Context) :

@@ -18,10 +18,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.archaeology.R
-import com.archaeology.models.ImageModel
-import com.archaeology.models.Location
-import com.archaeology.models.NoteModel
-import com.archaeology.models.SiteModel
+import com.archaeology.adapters.NoteListener
+import com.archaeology.adapters.SiteImageAdapter
+import com.archaeology.adapters.SiteNotesAdapter
+import com.archaeology.helpers.RecyclerViewHelper
+import com.archaeology.models.site.ImageModel
+import com.archaeology.models.site.Location
+import com.archaeology.models.site.NoteModel
+import com.archaeology.models.site.SiteModel
 import com.archaeology.views.BaseView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -246,7 +250,7 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
                 SiteNotesAdapter(notes, this)
             recyclerNotes.adapter?.notifyDataSetChanged()
 
-            val swipeHandler = object : SiteNoteDeleteCallback(this) {
+            val swipeHandler = object : RecyclerViewHelper(this) {
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     val adapter = SiteNotesAdapter(notes, this@SiteView)
                     adapter.removeAt(viewHolder.adapterPosition)

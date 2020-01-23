@@ -15,12 +15,12 @@ class AccountPresenter(view: BaseView) : BasePresenter(view) {
         app.activeUser?.updateEmail(email)
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    view?.toast("User email address updated.")
+                    view?.toast("Email address updated.")
                     app.users.logout()
                     app.activeUser = null
                     view?.navigateTo(VIEW.LOGIN)
                 } else {
-                    view?.toast("Email Change Failed: ${task.exception?.message}")
+                    view?.toast("Email change failed: ${task.exception?.message}")
                 }
             }
     }
@@ -29,12 +29,12 @@ class AccountPresenter(view: BaseView) : BasePresenter(view) {
         app.activeUser?.updatePassword(password)
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    view?.toast("User password updated.")
+                    view?.toast("Password updated.")
                     app.users.logout()
                     app.activeUser = null
                     view?.navigateTo(VIEW.LOGIN)
                 } else {
-                    view?.toast("Password Change Failed: ${task.exception?.message}")
+                    view?.toast("Password change failed: ${task.exception?.message}")
                 }
             }
     }

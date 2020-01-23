@@ -1,12 +1,10 @@
-package com.archaeology.models.firebase
+package com.archaeology.models.site
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.archaeology.helpers.readImageFromPath
-import com.archaeology.models.SiteModel
-import com.archaeology.models.SiteStore
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -74,10 +72,8 @@ class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
 
     override fun deleteSite(site: SiteModel) {
         db.child("users").child(userId).child("sites").child(site.fbId).removeValue()
-        // remove images
         deleteSiteImages(site.fbId)
 
-        // remove from user favourites
         db.child("users").child(userId).child("favourites").child(site.fbId).removeValue()
 
         sites.remove(site)
@@ -95,17 +91,14 @@ class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
     }
 
     private fun updateImage(site: SiteModel) {
-
         site.images.forEach { image ->
 
             var bitmap: Bitmap?
-
             val fileName = File(image.uri)
             val imageName = fileName.name
             val imageRef = st.child("$userId/${site.fbId}/$imageName")
             val byteOutputStream = ByteArrayOutputStream()
 
-            // if image uri contains .jpg, it came from camera
             if (image.uri.contains(".jpg")) {
                 bitmap = BitmapFactory.decodeFile(image.uri)
                 if (bitmap.height > 2000 || bitmap.width > 2000) {
@@ -154,6 +147,10 @@ class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
         return sites.sortedWith(compareBy { it.isFavourite }).asReversed()
     }
 
+    override fun sortByRating(): List<SiteModel>? {
+        return sites.sortedWith(compareBy { it.rating }).asReversed()
+    }
+
     fun fetchSites(sitesReady: () -> Unit) {
         val valueEventListener = object : ValueEventListener {
             override fun onCancelled(dataSnapshot: DatabaseError) {
@@ -172,14 +169,6 @@ class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
         sites.clear()
         db.child("users").child(userId).child("sites")
             .addListenerForSingleValueEvent(valueEventListener)
-    }
-
-    override fun sortByRating(): List<SiteModel>? {
-        return sites.sortedWith(compareBy { it.rating }).asReversed()
-    }
-
-    override fun sortByVisit(): List<SiteModel>? {
-        return sites.sortedWith(compareBy { it.visited }).asReversed()
     }
 
 }

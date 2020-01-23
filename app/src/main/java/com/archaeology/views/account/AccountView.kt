@@ -28,7 +28,7 @@ class AccountView : BaseView(), AnkoLogger {
         accountChangeEmail.setOnClickListener {
             val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_account_email, null)
             val builder = AlertDialog.Builder(this)
-            builder.setMessage("Enter A New Email (You Will Be Logged Out): ")
+            builder.setMessage("Enter your new email address.")
             builder.setView(mDialogView)
 
             val dialog: AlertDialog = builder.create()
@@ -56,7 +56,7 @@ class AccountView : BaseView(), AnkoLogger {
             val mDialogView =
                 LayoutInflater.from(this).inflate(R.layout.dialog_account_password, null)
             val builder = AlertDialog.Builder(this)
-            builder.setMessage("Enter A New Password (You Will Be Logged Out): ")
+            builder.setMessage("Enter your new password")
             builder.setView(mDialogView)
 
             val dialog: AlertDialog = builder.create()

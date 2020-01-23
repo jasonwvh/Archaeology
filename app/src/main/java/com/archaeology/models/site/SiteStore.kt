@@ -1,4 +1,4 @@
-package com.archaeology.models
+package com.archaeology.models.site
 
 interface SiteStore {
   fun findAllSites(): List<SiteModel>?
@@ -10,5 +10,4 @@ interface SiteStore {
   fun toggleFavourite(site: SiteModel)
   fun sortedByFavourite(): List<SiteModel>?
   fun sortByRating(): List<SiteModel>?
-  fun sortByVisit(): List<SiteModel>?
 }

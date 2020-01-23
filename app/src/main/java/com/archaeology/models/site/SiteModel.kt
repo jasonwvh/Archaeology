@@ -1,4 +1,4 @@
-package com.archaeology.models
+package com.archaeology.models.site
 
 import android.os.Parcelable
 import androidx.room.Embedded

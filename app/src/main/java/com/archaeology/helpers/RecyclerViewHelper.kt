@@ -1,4 +1,4 @@
-package com.archaeology.views.site
+package com.archaeology.helpers
 
 import android.content.Context
 import android.graphics.*
@@ -8,11 +8,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.archaeology.R
 
-
-abstract class SiteNoteDeleteCallback(context: Context) :
+abstract class RecyclerViewHelper(context: Context) :
     ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
-
-    // source https://medium.com/@kitek/recyclerview-swipe-to-delete-easier-than-you-thought-cff67ff5e5f6
 
     private val deleteIcon = ContextCompat.getDrawable(context, R.drawable.ic_cancel)
     private val intrinsicWidth = deleteIcon?.intrinsicWidth
@@ -68,7 +65,6 @@ abstract class SiteNoteDeleteCallback(context: Context) :
             return
         }
 
-        // Draw the red delete background
         background.color = backgroundColor
         background.setBounds(
             itemView.right + dX.toInt(),
@@ -78,14 +74,12 @@ abstract class SiteNoteDeleteCallback(context: Context) :
         )
         background.draw(c)
 
-        // Calculate position of delete icon
         val deleteIconTop = itemView.top + (itemHeight - intrinsicHeight!!) / 2
         val deleteIconMargin = (itemHeight - intrinsicHeight) / 2
         val deleteIconLeft = itemView.right - deleteIconMargin - intrinsicWidth!!
         val deleteIconRight = itemView.right - deleteIconMargin
         val deleteIconBottom = deleteIconTop + intrinsicHeight
 
-        // Draw the delete icon
         deleteIcon!!.setBounds(deleteIconLeft, deleteIconTop, deleteIconRight, deleteIconBottom)
         deleteIcon.draw(c)
 

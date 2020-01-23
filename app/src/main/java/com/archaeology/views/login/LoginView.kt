@@ -64,7 +64,6 @@ class LoginView : BaseView(), AnkoLogger {
 
     override fun hideProgress() {
         progressBar.visibility = View.GONE
-        // stop multiple login requests being sent
         loginButton.visibility = View.VISIBLE
         signupButton.visibility = View.VISIBLE
         loginDividerText.visibility = View.VISIBLE

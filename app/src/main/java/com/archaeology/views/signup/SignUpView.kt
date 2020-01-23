@@ -3,7 +3,7 @@ package com.archaeology.views.signup
 import android.os.Bundle
 import android.widget.EditText
 import com.archaeology.R
-import com.archaeology.models.UserModel
+import com.archaeology.models.user.UserModel
 import com.archaeology.views.BaseView
 import kotlinx.android.synthetic.main.activity_signup.*
 import org.jetbrains.anko.AnkoLogger

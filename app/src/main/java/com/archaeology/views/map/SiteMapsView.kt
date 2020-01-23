@@ -2,7 +2,7 @@ package com.archaeology.views.map
 
 import android.os.Bundle
 import com.archaeology.R
-import com.archaeology.models.SiteModel
+import com.archaeology.models.site.SiteModel
 import com.archaeology.views.BaseView
 import com.bumptech.glide.Glide
 import com.google.android.gms.maps.GoogleMap

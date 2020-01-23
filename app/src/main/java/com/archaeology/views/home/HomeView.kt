@@ -1,4 +1,4 @@
-package com.archaeology.views.main
+package com.archaeology.views.home
 
 import android.app.ActivityOptions
 import android.content.Intent
@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.drawer_main.*
 import org.jetbrains.anko.AnkoLogger
 
-open class MainView : AppCompatActivity(), AnkoLogger {
+open class HomeView : AppCompatActivity(), AnkoLogger {
     private lateinit var mDrawerLayout: DrawerLayout
     lateinit var app: MainApp
 
@@ -60,41 +60,41 @@ open class MainView : AppCompatActivity(), AnkoLogger {
 
                 R.id.nav_home -> {
                     startActivity(
-                        Intent(this@MainView, MainView::class.java),
+                        Intent(this@HomeView, HomeView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
                 }
                 R.id.nav_sites -> {
                     startActivity(
-                        Intent(this@MainView, SiteListView::class.java),
+                        Intent(this@HomeView, SiteListView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
                 }
 
                 R.id.nav_site_maps -> {
                     startActivity(
-                        Intent(this@MainView, SiteMapsView::class.java),
+                        Intent(this@HomeView, SiteMapsView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
                 }
 
                 R.id.nav_add -> {
                     startActivity(
-                        Intent(this@MainView, SiteView::class.java),
+                        Intent(this@HomeView, SiteView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
                 }
 
                 R.id.nav_account -> {
                     startActivity(
-                        Intent(this@MainView, AccountView::class.java),
+                        Intent(this@HomeView, AccountView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
                 }
 
                 R.id.nav_about -> {
                     startActivity(
-                        Intent(this@MainView, AboutView::class.java),
+                        Intent(this@HomeView, AboutView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
                 }
@@ -103,7 +103,7 @@ open class MainView : AppCompatActivity(), AnkoLogger {
                     app.users.logout()
                     app.activeUser = null
                     startActivity(
-                        Intent(this@MainView, LoginView::class.java),
+                        Intent(this@HomeView, LoginView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
                 }

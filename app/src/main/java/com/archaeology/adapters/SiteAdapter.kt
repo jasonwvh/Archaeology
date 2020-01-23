@@ -1,11 +1,11 @@
-package com.archaeology.views.sitelist
+package com.archaeology.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.archaeology.R
-import com.archaeology.models.SiteModel
+import com.archaeology.models.site.SiteModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.recycle_item_site.view.*
 

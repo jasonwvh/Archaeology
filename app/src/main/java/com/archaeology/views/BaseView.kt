@@ -3,12 +3,12 @@ package com.archaeology.views
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Parcelable
-import com.archaeology.models.ImageModel
-import com.archaeology.models.NoteModel
-import com.archaeology.models.SiteModel
+import com.archaeology.models.site.ImageModel
+import com.archaeology.models.site.NoteModel
+import com.archaeology.models.site.SiteModel
 import com.archaeology.views.editlocation.EditLocationView
+import com.archaeology.views.home.HomeView
 import com.archaeology.views.login.LoginView
-import com.archaeology.views.main.MainView
 import com.archaeology.views.map.SiteMapsView
 import com.archaeology.views.signup.SignUpView
 import com.archaeology.views.site.SiteView
@@ -24,7 +24,7 @@ enum class VIEW {
     LOCATION, SITE, MAPS, LIST, SIGNUP, MAIN, LOGIN
 }
 
-abstract class BaseView : MainView(), AnkoLogger {
+abstract class BaseView : HomeView(), AnkoLogger {
 
     private var basePresenter: BasePresenter? = null
 
@@ -35,7 +35,7 @@ abstract class BaseView : MainView(), AnkoLogger {
             VIEW.MAPS -> Intent(this, SiteMapsView::class.java)
             VIEW.LIST -> Intent(this, SiteListView::class.java)
             VIEW.SIGNUP -> Intent(this, SignUpView::class.java)
-            VIEW.MAIN -> Intent(this, MainView::class.java)
+            VIEW.MAIN -> Intent(this, HomeView::class.java)
             VIEW.LOGIN -> Intent(this, LoginView::class.java)
         }
         if (key != "") {

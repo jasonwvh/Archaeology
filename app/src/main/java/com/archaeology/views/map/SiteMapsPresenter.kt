@@ -1,6 +1,6 @@
 package com.archaeology.views.map
 
-import com.archaeology.models.SiteModel
+import com.archaeology.models.site.SiteModel
 import com.archaeology.views.BasePresenter
 import com.archaeology.views.BaseView
 import com.google.android.gms.maps.CameraUpdateFactory

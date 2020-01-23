@@ -1,8 +1,9 @@
-package com.archaeology.models
+package com.archaeology.models.user
 
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.archaeology.models.site.SiteModel
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

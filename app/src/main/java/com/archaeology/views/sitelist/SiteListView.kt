@@ -6,7 +6,9 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.archaeology.R
-import com.archaeology.models.SiteModel
+import com.archaeology.adapters.SiteListAdapter
+import com.archaeology.adapters.SiteListener
+import com.archaeology.models.site.SiteModel
 import com.archaeology.views.BaseView
 import kotlinx.android.synthetic.main.activity_site_list.*
 import kotlinx.android.synthetic.main.drawer_main.*

@@ -1,6 +1,6 @@
 package com.archaeology.views.signup
 
-import com.archaeology.models.UserModel
+import com.archaeology.models.user.UserModel
 import com.archaeology.views.BasePresenter
 import com.archaeology.views.BaseView
 import com.archaeology.views.VIEW

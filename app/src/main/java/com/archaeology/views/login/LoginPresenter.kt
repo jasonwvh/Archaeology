@@ -1,6 +1,6 @@
 package com.archaeology.views.login
 
-import com.archaeology.models.firebase.SiteFireStore
+import com.archaeology.models.site.SiteFireStore
 import com.archaeology.views.BasePresenter
 import com.archaeology.views.BaseView
 import com.archaeology.views.VIEW

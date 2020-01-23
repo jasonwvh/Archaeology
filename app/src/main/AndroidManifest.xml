@@ -24,7 +24,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity
-            android:name=".views.main.MainView"
+            android:name=".views.home.HomeView"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -41,7 +41,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".views.splash.SplashView"
+            android:name=".views.splash.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
