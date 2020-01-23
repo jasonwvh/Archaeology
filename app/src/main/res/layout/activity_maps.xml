@@ -45,8 +45,6 @@
             android:id="@+id/mapView"
             android:layout_width="match_parent"
             android:layout_height="680dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/map_border"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
