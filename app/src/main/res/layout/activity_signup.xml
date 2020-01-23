@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:backgroundTint="#00FFFFFF"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".views.signup.SignUpView">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
         android:layout_width="348dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
-        android:background="@drawable/rounded_layout"
+        android:background="@android:drawable/editbox_background_normal"
+        android:backgroundTint="#0DBEA76C"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +61,7 @@
             android:layout_width="141dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="39dp"
-            android:background="@drawable/rounded_button"
+            android:background="@color/colorAccent"
             android:text="@string/signUpButton"
             android:textColor="@android:color/white"
             android:textSize="20sp" />

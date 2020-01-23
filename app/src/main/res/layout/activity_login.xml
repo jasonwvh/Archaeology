@@ -60,44 +60,29 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="141dp"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_button_outline"
+        android:layout_marginEnd="64dp"
+        android:background="@color/colorAccent"
         android:text="@string/loginButton"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginPasswordInput" />
-
-    <TextView
-        android:id="@+id/loginDividerText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="@string/loginDividerLabel"
-        android:textColor="@android:color/white"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
-
-    <Button
-        android:id="@+id/loginSignUpButton"
-        android:layout_width="111dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/rounded_button_outline"
-        android:text="@string/loginSignUpButton"
         android:textColor="@android:color/white"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginPasswordInput" />
+
+    <Button
+        android:id="@+id/loginSignUpButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorAccent"
+        android:text="@string/loginSignUpButton"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginDividerText" />
+        app:layout_constraintTop_toBottomOf="@+id/loginPasswordInput" />
 
     <ProgressBar
         android:id="@+id/progressBar"

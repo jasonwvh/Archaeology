@@ -40,7 +40,7 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/rounded_button"
+            android:background="@android:drawable/btn_default"
             android:text="@string/noteDialogAddButton"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
@@ -51,7 +51,7 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/rounded_button"
+            android:background="@android:drawable/btn_default"
             android:text="@string/noteDialogCancelButton"
             android:textColor="@android:color/white"
             android:textSize="16sp" />

@@ -34,7 +34,7 @@
                 android:id="@+id/siteImageDividerTop"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@drawable/divider" />
+                android:background="@android:drawable/divider_horizontal_dark" />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
@@ -58,7 +58,7 @@
                 android:id="@+id/siteImageDividerBottom"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@drawable/divider" />
+                android:background="@android:drawable/divider_horizontal_dark" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -74,7 +74,7 @@
                     style="?android:attr/buttonBarStyle"
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/rounded_button"
+                    android:background="@android:drawable/btn_default"
                     android:backgroundTint="@color/colorAccent"
                     android:text="@string/siteEditImageButton"
                     android:textColor="@android:color/white"
@@ -109,7 +109,7 @@
                     android:id="@+id/siteDescriptionDivider"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/divider"
+                    android:background="@android:drawable/divider_horizontal_dark"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/siteName" />
@@ -157,7 +157,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/divider"
+                    android:background="@android:drawable/divider_horizontal_dark"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/siteDescription" />
 
@@ -254,7 +254,6 @@
                 android:layout_height="280dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/map_border"
                 android:scrollbars="vertical" />
 
             <Button
@@ -262,7 +261,7 @@
                 style="?android:attr/buttonBarStyle"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
+                android:background="@android:drawable/btn_default"
                 android:backgroundTint="@color/colorAccent"
                 android:text="@string/siteAddNoteButton"
                 android:textColor="@android:color/white"
@@ -285,7 +284,6 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:adjustViewBounds="true"
-                android:background="@drawable/map_border"
                 android:clickable="false" />
 
             <TextView

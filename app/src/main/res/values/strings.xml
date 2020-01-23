@@ -1,22 +1,19 @@
 <resources>
 
     <!--MAIN APP-->
-    <string name="app_name">Sitey</string>
-    <string name="mainAppWelcomeLabel">Welcome to Sitey,</string>
+    <string name="app_name">ArchBuddy</string>
+    <string name="mainAppWelcomeLabel">Welcome to ArchBuddy</string>
 
     <!--ACCOUNT ACTIVITY-->
     <string name="accountHeader">My Account</string>
     <string name="accountUsernameLabel">Username: </string>
     <string name="accountEmailLabel">Email: </string>
     <string name="accountPasswordLabel">Password: </string>
-    <string name="accountDeleteButton">Delete Account</string>
-    <string name="accountDeleteSitesButton">Delete Sites</string>
     <string name="accountEditButton">Edit Account</string>
 
     <!--SITE ACTIVITY-->
     <string name="siteNameField">Name</string>
     <string name="siteNotesHeader">Notes</string>
-    <string name="siteKeyInfoHeader">Key Info</string>
     <string name="siteLocationHeader">Location</string>
     <string name="siteDescriptionLabel">Description: </string>
     <string name="siteDateVisitedLabel">Date Visited: </string>

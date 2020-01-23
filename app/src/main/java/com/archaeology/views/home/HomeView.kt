@@ -19,7 +19,7 @@ import com.archaeology.views.site.SiteView
 import com.archaeology.views.sitelist.SiteListView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.drawer_main.*
 import org.jetbrains.anko.AnkoLogger
 
@@ -30,7 +30,7 @@ open class HomeView : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.drawer_main)
-        layoutInflater.inflate(R.layout.activity_main, content_frame)
+        layoutInflater.inflate(R.layout.activity_home, content_frame)
 
         app = application as MainApp
 
