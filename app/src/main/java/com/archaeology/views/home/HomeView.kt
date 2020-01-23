@@ -57,13 +57,6 @@ open class HomeView : AppCompatActivity(), AnkoLogger {
             mDrawerLayout.closeDrawers()
 
             when (menuItem.itemId) {
-
-                R.id.nav_home -> {
-                    startActivity(
-                        Intent(this@HomeView, HomeView::class.java),
-                        ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
-                    )
-                }
                 R.id.nav_sites -> {
                     startActivity(
                         Intent(this@HomeView, SiteListView::class.java),

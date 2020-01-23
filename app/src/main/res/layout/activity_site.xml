@@ -28,8 +28,6 @@
             android:clipToPadding="false"
             android:orientation="vertical">
 
-
-
             <View
                 android:id="@+id/siteImageDividerTop"
                 android:layout_width="match_parent"
@@ -146,7 +144,7 @@
                     android:scrollbarStyle="insideInset"
                     android:scrollbars="vertical"
                     android:textColor="@android:color/black"
-                    android:textColorHint="@color/splashColor"
+                    android:textColorHint="@color/fontHint"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/siteName"
@@ -211,6 +209,7 @@
                     app:layout_constraintStart_toEndOf="@+id/siteVisited"
                     app:layout_constraintTop_toBottomOf="@+id/visitedMsg" />
 
+
                 <TextView
                     android:id="@+id/ratingMsg"
                     android:layout_width="wrap_content"
@@ -237,16 +236,38 @@
                 android:numStars="5"
                 android:stepSize="1" />
 
-            <TextView
-                android:id="@+id/noteMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="start"
-                android:text="@string/siteNotesHeader"
-                android:textColor="@android:color/black"
-                android:textSize="32sp" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/noteMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="start"
+                    android:text="@string/siteNotesHeader"
+                    android:textColor="@android:color/black"
+                    android:textSize="32sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/siteAddNoteBtn"
+                    style="?android:attr/buttonBarStyle"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/colorAccent"
+                    android:text="@string/siteAddNoteButton"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerNotes"
@@ -254,19 +275,7 @@
                 android:layout_height="280dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/map_border"
                 android:scrollbars="vertical" />
-
-            <Button
-                android:id="@+id/siteAddNoteBtn"
-                style="?android:attr/buttonBarStyle"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/colorAccent"
-                android:text="@string/siteAddNoteButton"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
 
             <TextView
                 android:layout_marginTop="25dp"
@@ -285,7 +294,6 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:adjustViewBounds="true"
-                android:background="@drawable/map_border"
                 android:clickable="false" />
 
             <TextView

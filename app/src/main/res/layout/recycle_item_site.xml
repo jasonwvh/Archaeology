@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/siteRecycleItemImageIcon"
-            android:text="HEEEE"
+            android:text=""
             android:textSize="30sp" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/siteRecycleItemName"
             android:layout_toEndOf="@+id/siteRecycleItemImageIcon"
-            android:text="HOOOO" />
+            android:text="" />
 
         <TextView
             android:id="@+id/siteRecycleItemVisited"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/siteRecycleItemLocation"
             android:layout_toEndOf="@+id/siteRecycleItemImageIcon"
-            android:text="FIFO" />
+            android:text="" />
 
         <RatingBar
             android:id="@+id/siteRecycleItemRating"

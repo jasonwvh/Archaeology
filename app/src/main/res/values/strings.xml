@@ -1,8 +1,8 @@
 <resources>
 
     <!--MAIN APP-->
-    <string name="app_name">Sitey</string>
-    <string name="mainAppWelcomeLabel">Welcome to Sitey,</string>
+    <string name="app_name">ArchBuddy</string>
+    <string name="mainAppWelcomeLabel">Welcome to ArchBuddy,</string>
 
     <!--ACCOUNT ACTIVITY-->
     <string name="accountHeader">My Account</string>
@@ -45,15 +45,6 @@
     <string name="signUpPassword2Field">Confirm Password…</string>
     <string name="signUpButton">Sign Up</string>
 
-    <!--STATS ACTIVITY-->
-    <string name="statsHeader">Global Statistics</string>
-    <string name="statsTotalUsersField">Number Of Users: </string>
-    <string name="statsTotalSitesField">Number Of Sites: </string>
-    <string name="statsTotalImagesField">Number Of Images: </string>
-    <string name="statsTotalVisitsField">Number Of Visits: </string>
-    <string name="statsTotalNotesField">Number Of Notes: </string>
-    <string name="statsTopUserField">Most Active User: </string>
-
     <!--ACCOUNT DIALOG-->
     <string name="accountDialogUsernameField">New Username…</string>
     <string name="accountDialogEmailField">New Email…</string>
@@ -69,14 +60,11 @@
 
     <!--ABOUT DIALOG-->
     <string name="aboutHeader">About</string>
-    <string name="aboutInformation"></string>
-    <string name="aboutGitHubURL">https://github.com/Foxyf76/Site-App/</string>
+    <string name="aboutInformation">Created for Android Programming with Kotlin class</string>
 
     <!--SITE LIST DIALOG-->
-    <string name="filterMenuSortFavourite">Sort by Favourites</string>
     <string name="filterMenuSortRating">Sort by Rating</string>
-    <string name="filterMenuSortVisit">Sort by Visits</string>
-    <string name="filterMenuResetFilter">Reset Filters</string>
+
 
 </resources>
 
