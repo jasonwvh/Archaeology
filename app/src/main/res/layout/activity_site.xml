@@ -28,19 +28,7 @@
             android:clipToPadding="false"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/siteName"
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="center"
-                android:hint="@string/siteNameField"
-                android:inputType="text"
-                android:maxLength="25"
-                android:maxLines="1"
-                android:textColor="@android:color/black"
-                android:textSize="40sp" />
+
 
             <View
                 android:id="@+id/siteImageDividerTop"
@@ -94,43 +82,59 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:drawableStart="@drawable/ic_star"
-                android:drawablePadding="20dp"
-                android:drawableTint="@color/colorPrimary"
-                android:fontFamily="sans-serif-thin"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="409dp"
+                android:layout_height="321dp"
                 android:gravity="center"
-                android:text="@string/siteKeyInfoHeader"
-                android:textColor="@android:color/black"
-                android:textSize="32sp" />
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="445dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/siteName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:hint="@string/siteNameField"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:textColor="@android:color/black"
+                    android:textSize="40sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/siteDescriptionDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/siteName" />
 
                 <TextView
+                    android:id="@+id/descriptionMsg"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginVertical="10dp"
-                    android:fontFamily="sans-serif-thin"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="sans-serif"
                     android:text="@string/siteDescriptionLabel"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp" />
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/siteDescriptionDivider" />
 
                 <EditText
                     android:id="@+id/siteDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@android:color/transparent"
                     android:gravity="start"
                     android:hint="@string/siteDescriptionField"
@@ -141,88 +145,105 @@
                     android:overScrollMode="always"
                     android:scrollbarStyle="insideInset"
                     android:scrollbars="vertical"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/white"
-                    android:textSize="15sp" />
-
-                <View
-                    android:id="@+id/siteDescriptionDivider"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@drawable/divider"
-                    android:backgroundTint="@android:color/white" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginVertical="10dp"
-                    android:fontFamily="sans-serif-thin"
-                    android:text="@string/siteDateVisitedLabel"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp" />
-
-                <CheckBox
-                    android:id="@+id/siteVisited"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_marginBottom="5dp"
-                    android:backgroundTint="@android:color/white"
-                    android:buttonTint="@android:color/white"
-                    android:text="@string/siteVisitedCheckbox"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp" />
-
-                <EditText
-                    android:id="@+id/siteDateVisited"
-                    android:layout_width="140dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginVertical="5dp"
-                    android:backgroundTint="@android:color/white"
-                    android:focusableInTouchMode="false"
-                    android:hint="@string/siteDateVisitedField"
-                    android:inputType="date"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/white"
-                    android:textSize="15sp" />
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/splashColor"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/siteName"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionMsg" />
 
                 <View
                     android:id="@+id/siteDateDivider"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
                     android:background="@drawable/divider"
-                    android:backgroundTint="@android:color/white" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/siteDescription" />
+
+                <CheckBox
+                    android:id="@+id/siteVisited"
+                    android:layout_width="0dp"
+                    android:layout_height="33dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@android:color/white"
+                    android:buttonTint="@android:color/black"
+                    android:text="@string/siteVisitedCheckbox"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/visitedMsg" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/visitedMsg"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginVertical="10dp"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="@string/siteDateVisitedLabel"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/siteDateDivider" />
+
+                <EditText
+                    android:id="@+id/siteDateVisited"
+                    android:layout_width="wrap_content"
+                    android:layout_height="39dp"
+                    android:layout_gravity="start"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@android:color/white"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/siteDateVisitedField"
+                    android:inputType="date"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/siteVisited"
+                    app:layout_constraintTop_toBottomOf="@+id/visitedMsg" />
+
+                <TextView
+                    android:id="@+id/ratingMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="sans-serif-thin"
                     android:text="@string/siteRatingLabel"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp" />
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-                <RatingBar
-                    android:id="@+id/siteRatingBar"
-                    android:layout_width="240dp"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:stepSize="1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
+            <RatingBar
+                android:id="@+id/siteRatingBar"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1" />
 
             <TextView
+                android:id="@+id/noteMsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:drawableStart="@drawable/ic_note"
-                android:drawablePadding="20dp"
                 android:fontFamily="sans-serif-thin"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/siteNotesHeader"
                 android:textColor="@android:color/black"
                 android:textSize="32sp" />
@@ -249,8 +270,6 @@
 
             <TextView
                 android:layout_marginTop="25dp"
-                android:drawableStart="@drawable/ic_visited"
-                android:drawablePadding="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-thin"
@@ -274,20 +293,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp" />
-
-            <Button
-                android:id="@+id/siteNavigateButton"
-                style="?android:attr/buttonBarStyle"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/colorAccent"
-                android:gravity="center"
-                android:text="@string/siteShowRouteButton"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-
         </LinearLayout>
     </ScrollView>
 
