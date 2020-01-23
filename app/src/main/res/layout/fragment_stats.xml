@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <ImageView
+        android:id="@+id/about_header_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_menu_stats"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.050" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center"
+        android:text="@string/statsHeader"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.216" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.37">
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_star"
+                android:tint="@color/colorAccent" />
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:gravity="center_vertical"
+                android:text="@string/statsAverageRatingField"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/statsHillfortRating"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_menu_castle" />
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:gravity="center_vertical"
+                android:text="@string/statsTotalHillfortsField"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/statsHillfortsNumber"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_image"
+                android:tint="@color/colorAccent">
+
+            </ImageView>
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:gravity="center_vertical"
+                android:text="@string/statsTotalImagesField"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/statsImagesNumber"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_visited" />
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:gravity="center_vertical"
+                android:text="@string/statsTotalVisitsField"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/statsVisitedNumber"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_note"
+                android:tint="@color/colorAccent" />
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:gravity="center_vertical"
+                android:text="@string/statsTotalNotesField"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/statsNotesNumber"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_favorite"
+                android:tint="@color/colorPrimary" />
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:gravity="center_vertical"
+                android:text="@string/statsTopUserField"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/statsFavourites"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

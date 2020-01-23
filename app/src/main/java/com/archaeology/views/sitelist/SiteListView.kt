@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.archaeology.R
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BaseView
-import kotlinx.android.synthetic.main.activity_site_list.*
 
 class SiteListView : BaseView(), SiteListener {
 
@@ -32,7 +31,7 @@ class SiteListView : BaseView(), SiteListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.bottom_navigator, menu)
         return super.onCreateOptionsMenu(menu)
     }
 

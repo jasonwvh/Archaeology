@@ -1,32 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#464545"
-    tools:context=".views.login.LoginView">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/splash_background"
+    android:id="@+id/splashContainer"
+    tools:context=".views.splash.SplashView">
 
     <ImageView
-        android:id="@+id/image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/splash_logo" />
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/image"
-        android:gravity="center"
-        android:text="Loading"
-        android:textColor="#fff" />
-
-    <ProgressBar
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_below="@id/text"
-        android:layout_centerHorizontal="true"
-        android:padding="6dp" />
-
-</RelativeLayout>
+        android:id="@+id/splashImage"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/splash"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+</androidx.constraintlayout.widget.ConstraintLayout>
