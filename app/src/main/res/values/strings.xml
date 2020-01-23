@@ -10,31 +10,31 @@
     <string name="accountEmailLabel">Email: </string>
     <string name="accountPasswordLabel">Password: </string>
     <string name="accountDeleteButton">Delete Account</string>
-    <string name="accountDeleteHillfortsButton">Delete Hillforts</string>
+    <string name="accountDeleteSitesButton">Delete Sites</string>
     <string name="accountEditButton">Edit Account</string>
     <string name="accountPasswordButton">Change Password</string>
     <string name="accountEmailButton">Change Email</string>
 
-    <!--HILLFORT ACTIVITY-->
-    <string name="hillfortNameField">Name</string>
-    <string name="hillfortNotesHeader">Notes</string>
-    <string name="hillfortKeyInfoHeader">Key Info</string>
-    <string name="hillfortLocationHeader">Location</string>
-    <string name="hillfortDescriptionLabel">Description: </string>
-    <string name="hillfortDateVisitedLabel">Date Visited: </string>
-    <string name="hillfortDescriptionField">Enter Description…</string>
-    <string name="hillfortVisitedCheckbox">Is Visited</string>
-    <string name="hillfortDateVisitedField">Enter Date Visited…</string>
-    <string name="hillfortRatingLabel">Rating: </string>
-    <string name="hillfortEditLocationButton">Edit Location</string>
-    <string name="hillfortAddNoteButton">Add Note</string>
-    <string name="hillfortEditImageButton">Select Images</string>
-    <string name="hillfortChooseCoverButton">Choose As Cover</string>
-    <string name="hillfortShowRouteButton">Show Route</string>
-    <string name="hillfortFabShare">Share</string>
-    <string name="hillfortFabDelete">Delete</string>
-    <string name="hillfortFabFavourite">Favourite</string>
-    <string name="hillfortLocationSaveButton">Save</string>
+    <!--SITE ACTIVITY-->
+    <string name="siteNameField">Name</string>
+    <string name="siteNotesHeader">Notes</string>
+    <string name="siteKeyInfoHeader">Key Info</string>
+    <string name="siteLocationHeader">Location</string>
+    <string name="siteDescriptionLabel">Description: </string>
+    <string name="siteDateVisitedLabel">Date Visited: </string>
+    <string name="siteDescriptionField">Enter Description…</string>
+    <string name="siteVisitedCheckbox">Is Visited</string>
+    <string name="siteDateVisitedField">Enter Date Visited…</string>
+    <string name="siteRatingLabel">Rating: </string>
+    <string name="siteEditLocationButton">Edit Location</string>
+    <string name="siteAddNoteButton">Add Note</string>
+    <string name="siteEditImageButton">Select Images</string>
+    <string name="siteChooseCoverButton">Choose As Cover</string>
+    <string name="siteShowRouteButton">Show Route</string>
+    <string name="siteFabShare">Share</string>
+    <string name="siteFabDelete">Delete</string>
+    <string name="siteFabFavourite">Favourite</string>
+    <string name="siteLocationSaveButton">Save</string>
 
     <!--LOGIN ACTIVITY-->
     <string name="loginEmailField">Email…</string>
@@ -55,8 +55,8 @@
 
     <!--STATS ACTIVITY-->
     <string name="statsHeader">User Statistics</string>
-    <string name="statsAverageRatingField">Average Hillfort Rating: </string>
-    <string name="statsTotalHillfortsField">Number Of Hillforts: </string>
+    <string name="statsAverageRatingField">Average Site Rating: </string>
+    <string name="statsTotalSitesField">Number Of Sites: </string>
     <string name="statsTotalImagesField">Number Of Images: </string>
     <string name="statsTotalVisitsField">Number Of Visits: </string>
     <string name="statsTotalNotesField">Number Of Notes: </string>
@@ -77,30 +77,26 @@
 
     <!--ABOUT DIALOG-->
     <string name="aboutHeader">About</string>
-    <string name="aboutInformation">"
-        Hillforty, created by Luke Fox.
-        \n\nThis app was made as part assignments 1 &amp; 2 for Mobile App Development.
-        \n\nThe repo for this project can be found here:"
-    </string>
-    <string name="aboutGitHubURL">https://github.com/Foxyf76/Hillfort-App/</string>
+    <string name="aboutInformation"></string>
+    <string name="aboutGitHubURL"></string>
 
-    <!--HILLFORT LIST DIALOG-->
+    <!--SITE LIST DIALOG-->
     <string name="filterMenuSortFavourite">Sort by Favourites</string>
     <string name="filterMenuSortRating">Sort by Rating</string>
     <string name="filterMenuSortVisit">Sort by Visits</string>
     <string name="filterMenuResetFilter">Reset Filters</string>
 
     <!--NAVIGATOR-->
-    <string name="hillfortNavigatorWalkingButton">Walking</string>
-    <string name="hillfortNavigatorDrivingButton">Driving</string>
-    <string name="hillfortNavigatorMapButton">Open In Maps</string>
-    <string name="hillfortNavigatorBackButton">Back</string>
+    <string name="siteNavigatorWalkingButton">Walking</string>
+    <string name="siteNavigatorDrivingButton">Driving</string>
+    <string name="siteNavigatorMapButton">Open In Maps</string>
+    <string name="siteNavigatorBackButton">Back</string>
 
-    <string name="hillfortNavigationBarHillforts">Hillforts</string>
-    <string name="hillfortNavigationBarHome">Home</string>
-    <string name="hillfortNavigationBarMap">Map</string>
-    <string name="hillfortNavigationBarMore">More</string>
-    <string name="hillfortNavigationBarLogout">Logout</string>
+    <string name="siteNavigationBarSites">Sites</string>
+    <string name="siteNavigationBarHome">Home</string>
+    <string name="siteNavigationBarMap">Map</string>
+    <string name="siteNavigationBarMore">More</string>
+    <string name="siteNavigationBarLogout">Logout</string>
 
 </resources>
 

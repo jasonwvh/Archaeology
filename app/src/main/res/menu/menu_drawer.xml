@@ -14,17 +14,17 @@
             android:icon="@drawable/ic_menu_home"
             android:title="Home" />
         <item
-            android:id="@+id/nav_hillforts"
+            android:id="@+id/nav_sites"
             android:icon="@drawable/ic_menu_castle"
-            android:title="My Hillforts" />
+            android:title="My Sites" />
         <item
-            android:id="@+id/nav_hillfort_maps"
+            android:id="@+id/nav_site_maps"
             android:icon="@drawable/ic_menu_map"
-            android:title="All Hillforts" />
+            android:title="All Sites" />
         <item
             android:id="@+id/nav_add"
             android:icon="@drawable/ic_menu_plus"
-            android:title="Add a Hillfort" />
+            android:title="Add a Site" />
         <item
             android:id="@+id/nav_account"
             android:icon="@drawable/ic_menu_account"

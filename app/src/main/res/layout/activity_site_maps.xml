@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.map.HillfortMapsView">
+    tools:context=".views.map.SiteMapsView">
 
-    <include layout="@layout/content_hillfort_maps" />
+    <include layout="@layout/content_site_maps" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.hillfortlist.HillfortListView">
+    tools:context=".views.sitelist.SiteListView">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layoutAnimation="@anim/layout_fall_down"
-        android:id="@+id/hillfortRecyclerView"
+        android:id="@+id/siteRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
@@ -16,7 +16,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/hillfortListFloatingBtn"
+        android:id="@+id/siteListFloatingBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/hillfortRecyclerView"
+        app:layout_constraintStart_toStartOf="@+id/siteRecyclerView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_fab" />

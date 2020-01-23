@@ -14,7 +14,7 @@
         android:gravity="center">
 
         <ImageView
-            android:id="@+id/hillfortRecycleItemImageIcon"
+            android:id="@+id/siteRecycleItemImageIcon"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
@@ -24,48 +24,48 @@
 
         <TextView
             android:layout_marginStart="10dp"
-            android:id="@+id/hillfortRecycleItemName"
+            android:id="@+id/siteRecycleItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-thin"
             android:gravity="center_vertical"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/hillfortRecycleItemImageIcon"
+            android:layout_toEndOf="@+id/siteRecycleItemImageIcon"
             android:textSize="32sp" />
 
         <TextView
-            android:id="@+id/hillfortRecycleItemLocation"
+            android:id="@+id/siteRecycleItemLocation"
             android:layout_width="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/hillfortRecycleItemImageIcon"
+            android:layout_below="@id/siteRecycleItemName"
             android:fontFamily="sans-serif-thin"
             android:layout_height="wrap_content"
-            android:layout_below="@id/hillfortRecycleItemName"
+            android:layout_toEndOf="@+id/siteRecycleItemImageIcon"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/hillfortRecycleItemVisited"
+            android:id="@+id/siteRecycleItemVisited"
             android:layout_width="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/hillfortRecycleItemImageIcon"
+            android:layout_below="@id/siteRecycleItemLocation"
             android:fontFamily="sans-serif-thin"
-            android:layout_below="@id/hillfortRecycleItemLocation"
+            android:layout_toEndOf="@+id/siteRecycleItemImageIcon"
             android:textSize="18sp" />
 
         <RatingBar
-            android:id="@+id/hillfortRecycleItemRating"
+            android:id="@+id/siteRecycleItemRating"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:numStars="5"
-            android:layout_below="@id/hillfortRecycleItemVisited"
-            android:layout_toEndOf="@+id/hillfortRecycleItemImageIcon" />
+            android:layout_below="@id/siteRecycleItemVisited"
+            android:layout_toEndOf="@+id/siteRecycleItemImageIcon" />
 
         <ImageView
-            android:id="@+id/hillfortRecycleItemFavouriteIcon"
+            android:id="@+id/siteRecycleItemFavouriteIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentTop="true"

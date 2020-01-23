@@ -1,8 +1,11 @@
 package com.archaeology.views.navigator
 
+/*
 import android.content.Intent
 import android.net.Uri
+import com.archaeology.R
 import com.archaeology.helpers.checkLocationPermissions
+import com.archaeology.helpers.isPermissionGranted
 import com.archaeology.models.SiteModel
 import com.archaeology.views.BasePresenter
 import com.archaeology.views.BaseView
@@ -22,13 +25,6 @@ import com.google.maps.model.DirectionsRoute
 import com.google.maps.model.TravelMode
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.toast
-import org.joda.time.DateTime
-import org.wit.siteapp.R
-import org.wit.siteapp.helpers.checkLocationPermissions
-import org.wit.siteapp.helpers.isPermissionGranted
-import org.wit.siteapp.models.SiteModel
-import org.wit.siteapp.views.BasePresenter
-import org.wit.siteapp.views.BaseView
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
@@ -170,3 +166,4 @@ class NavigatorPresenter(view: BaseView) : BasePresenter(view) {
         view?.startActivity(intent)
     }
 }
+ */

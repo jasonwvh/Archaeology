@@ -7,13 +7,14 @@ import android.graphics.BitmapFactory
 import com.archaeology.helpers.readImageFromPath
 import com.archaeology.models.SiteModel
 import com.archaeology.models.SiteStore
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.io.ByteArrayOutputStream
 import java.io.File
-
 
 class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
     val sites = ArrayList<SiteModel>()
@@ -135,6 +136,42 @@ class SiteFireStore(val context: Context) : SiteStore, AnkoLogger {
                 }
             }
         }
+    }
+
+    override fun toggleFavourite(site: SiteModel) {
+        if (!site.isFavourite) {
+            db.child("users").child(userId).child("favourites").child(site.fbId).removeValue()
+        } else {
+            val key = db.child("users").child(userId).child("favourites").push()
+            key.let {
+                db.child("users").child(userId).child("favourites").child(site.fbId)
+                    .setValue(site.name)
+            }
+        }
+    }
+
+    override fun sortedByFavourite(): List<SiteModel>? {
+        return sites.sortedWith(compareBy { it.isFavourite }).asReversed()
+    }
+
+    fun fetchSites(sitesReady: () -> Unit) {
+        val valueEventListener = object : ValueEventListener {
+            override fun onCancelled(dataSnapshot: DatabaseError) {
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                dataSnapshot.children.mapNotNullTo(sites) {
+                    it.getValue<SiteModel>(SiteModel::class.java)
+                }
+                sitesReady()
+            }
+        }
+        userId = FirebaseAuth.getInstance().currentUser!!.uid
+        db = FirebaseDatabase.getInstance().reference
+        st = FirebaseStorage.getInstance().reference
+        sites.clear()
+        db.child("users").child(userId).child("sites")
+            .addListenerForSingleValueEvent(valueEventListener)
     }
 
     override fun sortByRating(): List<SiteModel>? {

@@ -73,7 +73,7 @@ open class MainView : AppCompatActivity(), AnkoLogger {
                     )
                 }
                 R.id.navigation_logout -> {
-                    app.sites.logout()
+                    app.users.logout()
                     app.activeUser = null
                     startActivity(
                         Intent(this, LoginView::class.java),

@@ -2,12 +2,15 @@ package com.archaeology.views.more
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.archaeology.R
 import com.archaeology.views.BaseView
 import com.archaeology.views.more.fragments.about.AboutFragment
-
+import com.archaeology.views.more.fragments.account.AccountFragment
+import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.android.synthetic.main.activity_extra.*
 import kotlinx.android.synthetic.main.drawer_main.*
-import org.wit.hillfortapp.views.more.fragments.account.AccountFragment
 
 class ExtraView : BaseView() {
 
@@ -29,9 +32,6 @@ class ExtraView : BaseView() {
                     1 -> {
                         AboutFragment.newInstance()
                     }
-                    2 -> {
-                        StatsFragment.newInstance()
-                    }
                     else -> {
                         AccountFragment.newInstance()
                     }
@@ -47,7 +47,6 @@ class ExtraView : BaseView() {
             tab.text = when (position) {
                 0 -> "Account"
                 1 -> "About"
-                2 -> "Stats"
                 else -> "Account"
             }
         }.attach()

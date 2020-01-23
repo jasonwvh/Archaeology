@@ -1,4 +1,4 @@
-package org.wit.hillfortapp.views.more.fragments.account
+package com.archaeology.views.more.fragments.account
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -7,10 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import com.archaeology.R
+import com.archaeology.views.more.fragments.BaseFragment
+import kotlinx.android.synthetic.main.fragment_account.view.*
 import org.jetbrains.anko.AnkoLogger
-import org.wit.hillfortapp.R
-import org.wit.hillfortapp.views.login.LoginView
-import org.wit.hillfortapp.views.more.fragments.BaseFragment
+import org.jetbrains.anko.toast
 
 class AccountFragment : BaseFragment(), AnkoLogger {
 
@@ -47,8 +48,8 @@ class AccountFragment : BaseFragment(), AnkoLogger {
 
             updateBtn.setOnClickListener {
                 when {
-                    emailField?.text.toString() == "" -> activity.toast("Please fill out all fields")
-                    !isEmailValid(emailField?.text.toString()) -> activity.toast("Please enter a valid email")
+                    emailField?.text.toString() == "" -> activity?.toast("Please fill out all fields")
+                    !isEmailValid(emailField?.text.toString()) -> activity?.toast("Please enter a valid email")
                     else -> {
                         presenter.doUpdateEmail(emailField?.text.toString())
                     }
@@ -82,8 +83,8 @@ class AccountFragment : BaseFragment(), AnkoLogger {
                         passwordConfirm?.text.toString()
                     ).contains(
                         ""
-                    ) -> activity.toast("Please fill out all fields")
-                    password!!.text.toString() != passwordConfirm!!.text.toString() -> activity.toast(
+                    ) -> activity?.toast("Please fill out all fields")
+                    password!!.text.toString() != passwordConfirm!!.text.toString() -> activity?.toast(
                         "Passwords do not match"
                     )
                     else -> {
@@ -97,33 +98,6 @@ class AccountFragment : BaseFragment(), AnkoLogger {
 
         }
 
-        view.accountDeleteBtn.setOnClickListener {
-            val builder = AlertDialog.Builder(activity)
-            builder.setMessage("Are you sure you want to delete your account?")
-            builder.setPositiveButton("Yes") { dialog, _ ->
-                presenter.doDelete()
-                dialog.dismiss()
-            }
-            builder.setNegativeButton("No") { dialog, _ ->
-                dialog.dismiss()
-            }
-            val dialog: AlertDialog = builder.create()
-            dialog.show()
-        }
-
-        view.accountDeleteHillfortsBtn.setOnClickListener {
-            val builder = AlertDialog.Builder(activity)
-            builder.setMessage("Are you sure you want to delete all your hillforts?")
-            builder.setPositiveButton("Yes") { dialog, _ ->
-                presenter.doDeleteHillforts()
-                dialog.dismiss()
-            }
-            builder.setNegativeButton("No") { dialog, _ ->
-                dialog.dismiss()
-            }
-            val dialog: AlertDialog = builder.create()
-            dialog.show()
-        }
         return view
     }
 

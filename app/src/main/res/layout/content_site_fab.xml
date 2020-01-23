@@ -14,7 +14,7 @@
         android:background="#212121"
         android:gravity="center"
         android:padding="8dp"
-        android:text="@string/hillfortFabFavourite"
+        android:text="@string/siteFabFavourite"
         android:textColor="#ffffff"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/fabMoreFavourite"
@@ -58,7 +58,7 @@
         android:background="#212121"
         android:gravity="center"
         android:padding="8dp"
-        android:text="@string/hillfortFabDelete"
+        android:text="@string/siteFabDelete"
         android:textColor="#ffffff"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/fabMoreDelete"
@@ -104,7 +104,7 @@
         android:focusable="true"
         android:tint="@android:color/white"
         app:borderWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@id/hillfortSaveFAB"
+        app:layout_constraintBottom_toTopOf="@id/siteSaveFAB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +113,7 @@
         app:srcCompat="@drawable/ic_add" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/hillfortSaveFAB"
+        android:id="@+id/siteSaveFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"

@@ -48,7 +48,7 @@
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:checked="false"
-                android:text="@string/hillfortNavigatorWalkingButton"
+                android:text="@string/siteNavigatorWalkingButton"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 
@@ -56,7 +56,7 @@
                 android:id="@+id/drivingRadioButton"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:text="@string/hillfortNavigatorDrivingButton"
+                android:text="@string/siteNavigatorDrivingButton"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </RadioGroup>
@@ -65,7 +65,7 @@
             android:id="@+id/openInMapsButton"
             android:layout_width="160dp"
             android:layout_height="40dp"
-            android:text="@string/hillfortNavigatorMapButton"
+            android:text="@string/siteNavigatorMapButton"
             android:drawableStart="@drawable/ic_open"
             android:background="@android:color/transparent"
             android:textColor="@android:color/white"

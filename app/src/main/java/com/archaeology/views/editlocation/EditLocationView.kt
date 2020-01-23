@@ -7,9 +7,9 @@ import com.archaeology.R
 import com.archaeology.views.BaseView
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
-import kotlinx.android.synthetic.main.content_site_maps.*
+import kotlinx.android.synthetic.main.activity_maps.*
+import kotlinx.android.synthetic.main.content_site_maps.mapView
 import kotlinx.android.synthetic.main.drawer_main.*
-
 
 class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.OnMarkerClickListener {
     lateinit var presenter: EditLocationPresenter
@@ -45,8 +45,8 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
     override fun onMarkerDragStart(marker: Marker) {}
 
     override fun onMarkerDrag(marker: Marker) {
-        lat.setText("%.6f".format(marker.position.latitude))
-        lng.setText("%.6f".format(marker.position.longitude))
+        lat.text = "%.6f".format(marker.position.latitude)
+        lng.text = "%.6f".format(marker.position.longitude)
     }
 
     override fun onMarkerDragEnd(marker: Marker) {

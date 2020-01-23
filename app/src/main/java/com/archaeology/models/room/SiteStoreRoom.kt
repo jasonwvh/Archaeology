@@ -1,6 +1,6 @@
 package com.archaeology.models.room
 
-
+/*
 import android.content.Context
 import androidx.room.Room
 import com.archaeology.models.SiteModel
@@ -37,3 +37,4 @@ class SiteStoreRoom(val context: Context) : SiteStore {
         dao.deleteSite(site)
     }
 }
+ */

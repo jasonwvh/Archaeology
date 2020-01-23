@@ -5,21 +5,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.archaeology.R
-import com.archaeology.helpers.readImageFromPath
 import com.archaeology.models.SiteModel
-import kotlinx.android.synthetic.main.card_site.view.*
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.recycle_item_site.view.*
 
 interface SiteListener {
     fun onSiteClick(site: SiteModel)
 }
 
-class SiteAdapter constructor(private var sites: List<SiteModel>,
-                                   private val listener: SiteListener
-) : RecyclerView.Adapter<SiteAdapter.MainHolder>() {
+class SiteListAdapter constructor(
+    private var sites: List<SiteModel>,
+    private val listener: SiteListener
+) : RecyclerView.Adapter<SiteListAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.card_site, parent, false)
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.recycle_item_site,
+                parent,
+                false
+            )
         )
     }
 
@@ -33,9 +38,27 @@ class SiteAdapter constructor(private var sites: List<SiteModel>,
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(site: SiteModel, listener: SiteListener) {
-            itemView.siteName.text = site.name
-            itemView.siteDescription.text = site.description
-            itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, site.image))
+
+            val location =
+                "LAT: ${"%.4f".format(site.location.lat)} | LNG: ${"%.4f".format(site.location.lng)}"
+            val isVisited = if (site.visited) "Yes" else "No"
+
+            itemView.siteRecycleItemName.text = site.name
+            itemView.siteRecycleItemLocation.text = location
+            itemView.siteRecycleItemVisited.text = "Visited: $isVisited"
+            itemView.siteRecycleItemRating.rating = site.rating.toFloat()
+            if (site.isFavourite) {
+                itemView.siteRecycleItemFavouriteIcon.setBackgroundResource(
+                    R.drawable.ic_favorite
+                )
+            }
+
+            if (site.images.size != 0) {
+                Glide.with(itemView.context).load(site.images[0].uri).centerCrop()
+                    .into(itemView.siteRecycleItemImageIcon)
+            } else {
+                itemView.siteRecycleItemImageIcon.setImageResource(R.drawable.placeholder)
+            }
             itemView.setOnClickListener { listener.onSiteClick(site) }
         }
     }
