@@ -1,6 +1,5 @@
 package com.archaeology.helpers
 
-
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity

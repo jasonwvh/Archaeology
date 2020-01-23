@@ -28,8 +28,6 @@ class SiteMapsView : BaseView(), GoogleMap.OnMarkerClickListener {
             map.setOnMarkerClickListener(this)
             presenter.loadSites()
         }
-
-        bottomNavBar.menu.findItem(R.id.navigation_map).isChecked = true
     }
 
     override fun showSite(site: SiteModel) {

@@ -209,7 +209,6 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
         showImages(site.images)
     }
 
-    // Credit: https://tutorial.eyehunts.com/android/android-date-picker-dialog-example-kotlin/
     @TargetApi(Build.VERSION_CODES.N)
     private fun showDatePickerDialog() {
         val c = Calendar.getInstance()
@@ -228,7 +227,6 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
     }
 
 
-    // source: https://stackoverflow.com/questions/16536414/how-to-use-mapview-in-android-using-google-map-v2
     private fun setMapLocation(map: GoogleMap, location: LatLng) {
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 5f))
         with(map) {
@@ -289,8 +287,6 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
         }
     }
 
-
-    // siteMapView  override methods
     public override fun onResume() {
         super.onResume()
         siteMapView.onResume()

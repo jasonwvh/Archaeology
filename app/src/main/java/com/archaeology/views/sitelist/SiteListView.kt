@@ -30,7 +30,7 @@ class SiteListView : BaseView(), SiteListener {
             presenter.doAddSite()
         }
 
-        bottomNavBar.menu.findItem(R.id.navigation_sites).isChecked = true
+        //bottomNavBar.menu.findItem(R.id.navigation_sites).isChecked = true
     }
 
     override fun showSites(sites: List<SiteModel>) {

@@ -3,6 +3,8 @@
     package="com.archaeology">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".main.MainApp"
@@ -60,7 +62,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".views.more.ExtraView"
+            android:name=".views.account.AccountView"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".views.about.AboutView"
             android:theme="@style/AppTheme.NoActionBar" />
 
 

@@ -19,7 +19,7 @@ class ExtraView : BaseView() {
         content_frame.removeAllViews()
         layoutInflater.inflate(R.layout.activity_extra, content_frame)
 
-        bottomNavBar.menu.findItem(R.id.navigation_more).isChecked = true
+        //bottomNavBar.menu.findItem(R.id.navigation_more).isChecked = true
 
         // Source: https://code.luasoftware.com/tutorials/android/setup-android-viewpager2-with-tablayout-and-fragment/
         val viewPager: ViewPager2 = findViewById(R.id.viewPager)

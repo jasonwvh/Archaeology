@@ -9,9 +9,10 @@ import com.archaeology.R
 import com.archaeology.views.BaseView
 import com.archaeology.views.VIEW
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.toast
 
-class LoginView : BaseView() {
+class LoginView : BaseView(), AnkoLogger {
 
     private lateinit var presenter: LoginPresenter
 

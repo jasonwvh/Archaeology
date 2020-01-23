@@ -2,7 +2,6 @@ package com.archaeology.views.editlocation
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import com.archaeology.R
 import com.archaeology.views.BaseView
 import com.google.android.gms.maps.GoogleMap
@@ -32,7 +31,7 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
         menuInflater.inflate(R.menu.menu_edit_location, menu)
         return super.onCreateOptionsMenu(menu)
     }
-
+/*
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_save -> {
@@ -41,6 +40,8 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
         }
         return super.onOptionsItemSelected(item)
     }
+
+ */
 
     override fun onMarkerDragStart(marker: Marker) {}
 

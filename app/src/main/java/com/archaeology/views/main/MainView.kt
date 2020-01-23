@@ -3,23 +3,28 @@ package com.archaeology.views.main
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.archaeology.R
 import com.archaeology.main.MainApp
+import com.archaeology.views.about.AboutView
+import com.archaeology.views.account.AccountView
 import com.archaeology.views.login.LoginView
 import com.archaeology.views.map.SiteMapsView
-import com.archaeology.views.more.ExtraView
+import com.archaeology.views.site.SiteView
 import com.archaeology.views.sitelist.SiteListView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.drawer_main.*
 import org.jetbrains.anko.AnkoLogger
 
 open class MainView : AppCompatActivity(), AnkoLogger {
-
-    lateinit var bottomNavBar: BottomNavigationView
+    private lateinit var mDrawerLayout: DrawerLayout
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,59 +36,90 @@ open class MainView : AppCompatActivity(), AnkoLogger {
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        val actionbar: ActionBar? = supportActionBar
+        actionbar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_menu)
+        }
 
-        val user: FirebaseUser? = app.activeUser
-        if (user != null) {
+        if (intent.hasExtra("user")) {
+            val user: FirebaseUser = intent.extras?.getParcelable("user")!!
             mainActivityUsernameText.text = user.email!!.split('@')[0]
         }
 
-        bottomNavBar = findViewById(R.id.bottom_navigation)
-        bottomNavBar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        bottomNavBar.menu.findItem(R.id.navigation_home).isChecked = true
+        mDrawerLayout = findViewById(R.id.drawer_layout)
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
 
-    }
+        navigationView.itemIconTintList = null
 
-    private val mOnNavigationItemSelectedListener =
-        BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.navigation_home -> {
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            menuItem.isChecked = true
+            mDrawerLayout.closeDrawers()
+
+            when (menuItem.itemId) {
+
+                R.id.nav_home -> {
                     startActivity(
-                        Intent(this, MainView::class.java),
-                        ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
-                    )
-
-                }
-                R.id.navigation_sites -> {
-                    startActivity(
-                        Intent(this, SiteListView::class.java),
+                        Intent(this@MainView, MainView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
                 }
-                R.id.navigation_map -> {
+                R.id.nav_sites -> {
                     startActivity(
-                        Intent(this, SiteMapsView::class.java),
+                        Intent(this@MainView, SiteListView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
+                }
 
-                }
-                R.id.navigation_more -> {
+                R.id.nav_site_maps -> {
                     startActivity(
-                        Intent(this, ExtraView::class.java),
+                        Intent(this@MainView, SiteMapsView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
                 }
-                R.id.navigation_logout -> {
+
+                R.id.nav_add -> {
+                    startActivity(
+                        Intent(this@MainView, SiteView::class.java),
+                        ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                    )
+                }
+
+                R.id.nav_account -> {
+                    startActivity(
+                        Intent(this@MainView, AccountView::class.java),
+                        ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                    )
+                }
+
+                R.id.nav_about -> {
+                    startActivity(
+                        Intent(this@MainView, AboutView::class.java),
+                        ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                    )
+                }
+
+                R.id.nav_logout -> {
                     app.users.logout()
                     app.activeUser = null
                     startActivity(
-                        Intent(this, LoginView::class.java),
+                        Intent(this@MainView, LoginView::class.java),
                         ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
                     )
                 }
             }
+
             true
         }
+    }
 
-    open fun setNavigationBarItem() {}
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                mDrawerLayout.openDrawer(GravityCompat.START)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }

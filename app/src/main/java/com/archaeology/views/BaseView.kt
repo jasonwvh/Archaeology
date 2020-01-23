@@ -14,6 +14,7 @@ import com.archaeology.views.signup.SignUpView
 import com.archaeology.views.site.SiteView
 import com.archaeology.views.sitelist.SiteListView
 import com.google.android.gms.maps.model.LatLng
+import com.google.firebase.auth.FirebaseUser
 import org.jetbrains.anko.AnkoLogger
 
 val IMAGE_REQUEST = 1
@@ -81,5 +82,6 @@ abstract class BaseView : MainView(), AnkoLogger {
     open fun showUpdatedMap(latLng: LatLng) {}
     open fun showProgress() {}
     open fun hideProgress() {}
+    open fun showAccount(user: FirebaseUser) {}
 
 }
