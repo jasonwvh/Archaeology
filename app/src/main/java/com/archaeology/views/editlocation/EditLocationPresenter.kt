@@ -23,7 +23,7 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
         map = googleMap
         val loc = LatLng(location.lat, location.lng)
         val options = MarkerOptions()
-            .title("Site")
+            .title("Hillfort")
             .snippet("GPS : $loc")
             .draggable(true)
             .position(loc)

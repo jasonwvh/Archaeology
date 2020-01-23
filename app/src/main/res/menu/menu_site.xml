@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <group
+        android:id="@+id/popupMenu"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/popupCancel"
+            android:title="Cancel" />
+
+        <item
+            android:id="@+id/popupNext"
+            android:title="Next" />
+
+        <item
+            android:id="@+id/popupPrevious"
+            android:title="Previous" />
+    </group>
+</menu>

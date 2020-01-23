@@ -8,8 +8,8 @@ import android.widget.EditText
 import com.archaeology.R
 import com.archaeology.views.BaseView
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.activity_account.*
 import kotlinx.android.synthetic.main.drawer_main.*
-import kotlinx.android.synthetic.main.fragment_account.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.toast
 

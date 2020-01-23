@@ -29,8 +29,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import kotlinx.android.synthetic.main.activity_site.*
-import kotlinx.android.synthetic.main.card_site.siteDescription
-import kotlinx.android.synthetic.main.card_site.siteName
 import kotlinx.android.synthetic.main.content_site_fab.*
 import kotlinx.android.synthetic.main.drawer_main.*
 import org.jetbrains.anko.AnkoLogger
@@ -199,8 +197,8 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
     }
 
     override fun showSite(site: SiteModel) {
-        siteName.text = site.name
-        siteDescription.text = site.description
+        siteName.setText(site.name)
+        siteDescription.setText(site.description)
         siteVisited.isChecked = site.visited
         siteDateVisited.setText(site.dateVisited)
         siteRatingBar.rating = site.rating.toFloat()

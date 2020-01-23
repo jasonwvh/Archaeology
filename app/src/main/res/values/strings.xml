@@ -1,8 +1,8 @@
 <resources>
 
     <!--MAIN APP-->
-    <string name="app_name">ArchBuddy</string>
-    <string name="mainAppWelcomeLabel">Welcome to ArchBuddy,</string>
+    <string name="app_name">Sitey</string>
+    <string name="mainAppWelcomeLabel">Welcome to Sitey,</string>
 
     <!--ACCOUNT ACTIVITY-->
     <string name="accountHeader">My Account</string>
@@ -12,8 +12,6 @@
     <string name="accountDeleteButton">Delete Account</string>
     <string name="accountDeleteSitesButton">Delete Sites</string>
     <string name="accountEditButton">Edit Account</string>
-    <string name="accountPasswordButton">Change Password</string>
-    <string name="accountEmailButton">Change Email</string>
 
     <!--SITE ACTIVITY-->
     <string name="siteNameField">Name</string>
@@ -29,12 +27,6 @@
     <string name="siteEditLocationButton">Edit Location</string>
     <string name="siteAddNoteButton">Add Note</string>
     <string name="siteEditImageButton">Select Images</string>
-    <string name="siteChooseCoverButton">Choose As Cover</string>
-    <string name="siteShowRouteButton">Show Route</string>
-    <string name="siteFabShare">Share</string>
-    <string name="siteFabDelete">Delete</string>
-    <string name="siteFabFavourite">Favourite</string>
-    <string name="siteLocationSaveButton">Save</string>
 
     <!--LOGIN ACTIVITY-->
     <string name="loginEmailField">Email…</string>
@@ -54,13 +46,13 @@
     <string name="signUpButton">Sign Up</string>
 
     <!--STATS ACTIVITY-->
-    <string name="statsHeader">User Statistics</string>
-    <string name="statsAverageRatingField">Average Site Rating: </string>
+    <string name="statsHeader">Global Statistics</string>
+    <string name="statsTotalUsersField">Number Of Users: </string>
     <string name="statsTotalSitesField">Number Of Sites: </string>
     <string name="statsTotalImagesField">Number Of Images: </string>
     <string name="statsTotalVisitsField">Number Of Visits: </string>
     <string name="statsTotalNotesField">Number Of Notes: </string>
-    <string name="statsTopUserField">Number Of Favourites: </string>
+    <string name="statsTopUserField">Most Active User: </string>
 
     <!--ACCOUNT DIALOG-->
     <string name="accountDialogUsernameField">New Username…</string>
@@ -78,25 +70,13 @@
     <!--ABOUT DIALOG-->
     <string name="aboutHeader">About</string>
     <string name="aboutInformation"></string>
-    <string name="aboutGitHubURL"></string>
+    <string name="aboutGitHubURL">https://github.com/Foxyf76/Site-App/</string>
 
     <!--SITE LIST DIALOG-->
     <string name="filterMenuSortFavourite">Sort by Favourites</string>
     <string name="filterMenuSortRating">Sort by Rating</string>
     <string name="filterMenuSortVisit">Sort by Visits</string>
     <string name="filterMenuResetFilter">Reset Filters</string>
-
-    <!--NAVIGATOR-->
-    <string name="siteNavigatorWalkingButton">Walking</string>
-    <string name="siteNavigatorDrivingButton">Driving</string>
-    <string name="siteNavigatorMapButton">Open In Maps</string>
-    <string name="siteNavigatorBackButton">Back</string>
-
-    <string name="siteNavigationBarSites">Sites</string>
-    <string name="siteNavigationBarHome">Home</string>
-    <string name="siteNavigationBarMap">Map</string>
-    <string name="siteNavigationBarMore">More</string>
-    <string name="siteNavigationBarLogout">Logout</string>
 
 </resources>
 

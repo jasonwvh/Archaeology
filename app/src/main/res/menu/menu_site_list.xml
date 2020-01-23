@@ -2,15 +2,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item
+        android:id="@+id/action_search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/app_name"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+
     <group
         android:id="@+id/filterMenu"
         android:checkableBehavior="single"
         app:showAsAction="always">
 
         <item
+            android:id="@+id/sortByFavourite"
+            android:title="@string/filterMenuSortFavourite" />
+
+        <item
             android:id="@+id/sortByRating"
             android:title="@string/filterMenuSortRating" />
 
+        <item
+            android:id="@+id/sortByVisited"
+            android:title="@string/filterMenuSortVisit" />
+
+        <item
+            android:id="@+id/resetView"
+            android:title="@string/filterMenuResetFilter" />
     </group>
 
     <group

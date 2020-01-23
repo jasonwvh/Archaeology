@@ -46,7 +46,6 @@
         android:layout_marginBottom="99dp"
         android:fontFamily="sans-serif-thin"
         android:gravity="center"
-        android:text=""
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
@@ -93,45 +92,6 @@
             android:background="@drawable/rounded_button"
             android:backgroundTint="@color/colorPrimary"
             android:text="Change Password"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="53dp"
-        android:layout_margin="8dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762">
-
-        <Button
-            android:id="@+id/accountDeleteBtn"
-            style="?android:attr/buttonBarStyle"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@drawable/rounded_button"
-            android:backgroundTint="@color/colorAccent"
-            android:text="@string/accountDeleteButton"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/accountDeleteSitesBtn"
-            style="?android:attr/buttonBarStyle"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@drawable/rounded_button"
-            android:backgroundTint="@color/colorAccent"
-            android:text="@string/accountDeleteSitesButton"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
     </LinearLayout>

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/fabTextFavourite"
         android:layout_width="80dp"
@@ -15,7 +14,7 @@
         android:background="#212121"
         android:gravity="center"
         android:padding="8dp"
-        android:text="@string/siteFabFavourite"
+        android:text="Favourite"
         android:textColor="#ffffff"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/fabMoreFavourite"
@@ -59,7 +58,7 @@
         android:background="#212121"
         android:gravity="center"
         android:padding="8dp"
-        android:text="@string/siteFabDelete"
+        android:text="Delete"
         android:textColor="#ffffff"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/fabMoreDelete"
@@ -133,5 +132,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_check" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
