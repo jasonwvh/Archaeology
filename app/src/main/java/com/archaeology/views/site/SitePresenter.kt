@@ -105,14 +105,6 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
         view?.alert("${noteModel.title}\n\n${noteModel.content}")?.show()
     }
 
-    fun doShare() {
-        if (edit) {
-            view?.createShareIntent(site)
-        } else {
-            view?.toast("Please finish creating this Site first!")
-        }
-    }
-
     fun doAddOrSave(tempSite: SiteModel) {
         site.name = tempSite.name
         site.description = tempSite.description

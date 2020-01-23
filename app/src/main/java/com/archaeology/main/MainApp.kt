@@ -17,7 +17,6 @@ class MainApp : Application(), AnkoLogger {
 
   override fun onCreate() {
     super.onCreate()
-    //sites = SiteJSONStore(applicationContext)
     sites = SiteFireStore(applicationContext)
     users = UserFireStore(applicationContext)
     info("Site started")

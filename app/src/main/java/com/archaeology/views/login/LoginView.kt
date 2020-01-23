@@ -11,7 +11,6 @@ import com.archaeology.views.VIEW
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.toast
 
-
 class LoginView : BaseView() {
 
     private lateinit var presenter: LoginPresenter

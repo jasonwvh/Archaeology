@@ -29,25 +29,21 @@ class ExtraView : BaseView() {
                     0 -> {
                         AccountFragment.newInstance()
                     }
-                    1 -> {
-                        AboutFragment.newInstance()
-                    }
                     else -> {
-                        AccountFragment.newInstance()
+                        AboutFragment.newInstance()
                     }
                 }
             }
 
             override fun getItemCount(): Int {
-                return 3
+                return 2
             }
         }
 
         TabLayoutMediator(tabs, viewPager) { tab, position ->
             tab.text = when (position) {
                 0 -> "Account"
-                1 -> "About"
-                else -> "Account"
+                else -> "About"
             }
         }.attach()
     }

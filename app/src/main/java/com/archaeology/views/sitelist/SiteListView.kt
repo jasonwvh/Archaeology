@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.archaeology.R
 import com.archaeology.models.SiteModel
@@ -47,29 +46,6 @@ class SiteListView : BaseView(), SiteListener {
         toolbar.overflowIcon = getDrawable(R.drawable.ic_filter)
         ascendingItem = menu!!.findItem(R.id.sortAscending)
 
-        val item = menu.findItem(R.id.action_search)
-        val searchView: SearchView = item.actionView as SearchView
-
-        searchView.isSubmitButtonEnabled = true
-        searchView.queryHint = "Enter A Name..."
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-
-            override fun onQueryTextChange(currentText: String): Boolean {
-                presenter.doSearch(currentText)
-                return true
-            }
-
-            override fun onQueryTextSubmit(query: String): Boolean {
-                presenter.doSearch(query)
-                return true
-            }
-        })
-
-        searchView.setOnCloseListener {
-            presenter.loadSites()
-            true
-        }
-
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -84,26 +60,10 @@ class SiteListView : BaseView(), SiteListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.sortByFavourite -> {
-                presenter.doSortFavourite()
-                item.isChecked = true
-                ascendingItem.isChecked = true
-            }
-
             R.id.sortByRating -> {
                 presenter.doSortByRating()
                 item.isChecked = true
                 ascendingItem.isChecked = true
-            }
-
-            R.id.sortByVisited -> {
-                presenter.doSortByVisit()
-                item.isChecked = true
-                ascendingItem.isChecked = true
-            }
-
-            R.id.resetView -> {
-                presenter.loadSites()
             }
 
             R.id.sortAscending -> {

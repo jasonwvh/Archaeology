@@ -3,7 +3,6 @@ package com.archaeology.views
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Parcelable
-import com.archaeology.helpers.constructEmailTemplate
 import com.archaeology.models.ImageModel
 import com.archaeology.models.NoteModel
 import com.archaeology.models.SiteModel
@@ -52,15 +51,6 @@ abstract class BaseView : MainView(), AnkoLogger {
     fun initPresenter(presenter: BasePresenter): BasePresenter {
         basePresenter = presenter
         return presenter
-    }
-
-    fun createShareIntent(value: Parcelable?) {
-        val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.type = "text/plain"
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Sitey")
-        val shareMessage = constructEmailTemplate(value as SiteModel)
-        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
-        startActivity(Intent.createChooser(shareIntent, "Choose an Application"))
     }
 
     override fun onDestroy() {

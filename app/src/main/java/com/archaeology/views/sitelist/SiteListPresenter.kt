@@ -35,23 +35,6 @@ class SiteListPresenter(view: BaseView): BasePresenter(view) {
         }
     }
 
-    fun doSortFavourite() {
-        val favourites = app.sites.sortedByFavourite()
-        if (favourites != null) {
-            currentSites = favourites
-            view?.showSites(favourites)
-        }
-    }
-
-    fun doSearch(query: String) {
-        val foundSites = app.sites.findSitesByName(query)
-        view?.info(foundSites)
-        if (foundSites != null) {
-            currentSites = foundSites
-            view?.showSites(foundSites)
-        }
-    }
-
     fun doSortByRating() {
         val ratedSites = app.sites.sortByRating()
         if (ratedSites != null) {
@@ -60,13 +43,6 @@ class SiteListPresenter(view: BaseView): BasePresenter(view) {
         }
     }
 
-    fun doSortByVisit() {
-        val visitedSites = app.sites.sortByVisit()
-        if (visitedSites != null) {
-            currentSites = visitedSites
-            view?.showSites(visitedSites)
-        }
-    }
 
     fun doAscendingOrder() {
         view?.showSites(currentSites)
@@ -75,7 +51,4 @@ class SiteListPresenter(view: BaseView): BasePresenter(view) {
     fun doDescendingOrder() {
         view?.showSites(currentSites.asReversed())
     }
-
-    // TODO --> Refactor 'show all sites map' to contain only active user sites on map
-
 }
