@@ -11,7 +11,6 @@ import com.archaeology.views.editlocation.EditLocationView
 import com.archaeology.views.login.LoginView
 import com.archaeology.views.main.MainView
 import com.archaeology.views.map.SiteMapsView
-import com.archaeology.views.navigator.NavigatorView
 import com.archaeology.views.signup.SignUpView
 import com.archaeology.views.site.SiteView
 import com.archaeology.views.sitelist.SiteListView
@@ -22,7 +21,7 @@ val IMAGE_REQUEST = 1
 val LOCATION_REQUEST = 2
 
 enum class VIEW {
-    LOCATION, SITE, MAPS, LIST, SIGNUP, MAIN, LOGIN, NAVIGATOR
+    LOCATION, SITE, MAPS, LIST, SIGNUP, MAIN, LOGIN
 }
 
 abstract class BaseView : MainView(), AnkoLogger {
@@ -33,7 +32,6 @@ abstract class BaseView : MainView(), AnkoLogger {
         val intent: Intent = when (view) {
             VIEW.LOCATION -> Intent(this, EditLocationView::class.java)
             VIEW.SITE -> Intent(this, SiteView::class.java)
-            VIEW.NAVIGATOR -> Intent(this, NavigatorView::class.java)
             VIEW.MAPS -> Intent(this, SiteMapsView::class.java)
             VIEW.LIST -> Intent(this, SiteListView::class.java)
             VIEW.SIGNUP -> Intent(this, SignUpView::class.java)

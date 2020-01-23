@@ -135,14 +135,6 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
         }
     }
 
-    fun doNavigation(): Boolean {
-        if (edit) {
-            view?.navigateTo(VIEW.NAVIGATOR, 0, "site", site)
-        } else {
-            view?.toast("Please finish creating this Site first!")
-        }
-        return true
-    }
 
     fun doDelete() {
         doAsync {

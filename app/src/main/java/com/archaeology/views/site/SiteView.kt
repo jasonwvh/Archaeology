@@ -8,7 +8,6 @@ import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
 import android.view.*
-import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -65,21 +64,9 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
 
         // Source: https://medium.com/@shubham_nikam/easy-way-to-add-minimal-expandable-floating-action-button-fab-menu-dd8e6e011f52
         fabMore.setOnClickListener {
-
-            val fabOpen = AnimationUtils.loadAnimation(applicationContext, R.anim.fab_menu_open)
-            val fabClose = AnimationUtils.loadAnimation(applicationContext, R.anim.fab_menu_close)
-            val fabClockwise =
-                AnimationUtils.loadAnimation(applicationContext, R.anim.fab_rotate_clockwise)
-            val fabAntiClockwise =
-                AnimationUtils.loadAnimation(applicationContext, R.anim.fab_rotate_anticlockwise)
-
             if (isFabOpen) {
                 fabTextFavourite.visibility = View.INVISIBLE
                 fabTextDelete.visibility = View.INVISIBLE
-
-                fabMoreFavourite.startAnimation(fabClose)
-                fabMoreDelete.startAnimation(fabClose)
-                fabMore.startAnimation(fabAntiClockwise)
 
                 fabMoreFavourite.isClickable = false
                 fabMoreDelete.isClickable = false
@@ -89,9 +76,6 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
                 fabTextFavourite.visibility = View.VISIBLE
                 fabTextDelete.visibility = View.VISIBLE
 
-                fabMoreFavourite.startAnimation(fabOpen)
-                fabMoreDelete.startAnimation(fabOpen)
-                fabMore.startAnimation(fabClockwise)
 
                 fabMoreFavourite.isClickable = true
                 fabMoreDelete.isClickable = true
@@ -101,12 +85,6 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
         }
 
         fabMoreFavourite.setOnClickListener {
-            it.startAnimation(
-                AnimationUtils.loadAnimation(
-                    this,
-                    R.anim.fab_favourite_click
-                )
-            )
             presenter.doFavourite()
         }
 
@@ -191,10 +169,6 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
 
             val dialog: AlertDialog = builder.create()
             dialog.show()
-        }
-
-        siteNavigateButton.setOnClickListener {
-            presenter.doNavigation()
         }
     }
 

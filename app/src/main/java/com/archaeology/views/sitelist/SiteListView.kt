@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.animation.AnimationUtils
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.archaeology.R
@@ -37,9 +36,6 @@ class SiteListView : BaseView(), SiteListener {
 
     override fun showSites(sites: List<SiteModel>) {
         val context = siteRecyclerView.context
-        val controller = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_fall_down)
-
-        siteRecyclerView.layoutAnimation = controller
 
         siteRecyclerView.adapter = SiteListAdapter(sites, this)
         siteRecyclerView.adapter?.notifyDataSetChanged()
