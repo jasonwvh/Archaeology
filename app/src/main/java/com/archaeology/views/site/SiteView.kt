@@ -179,19 +179,7 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
         }
 
         siteChooseImageBtn.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder.setMessage("This will reset the existing images, continue?")
-            builder.setPositiveButton("YES") { dialog, _ ->
-                presenter.doSelectImage()
-                dialog.dismiss()
-            }
-
-            builder.setNegativeButton("No") { dialog, _ ->
-                dialog.dismiss()
-            }
-
-            val dialog: AlertDialog = builder.create()
-            dialog.show()
+            presenter.doSelectImage()
         }
     }
 

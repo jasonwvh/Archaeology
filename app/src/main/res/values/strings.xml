@@ -13,7 +13,7 @@
     <string name="siteLocationHeader">Location</string>
 
     <string name="siteDescriptionLabel">Description</string>
-    <string name="siteDateVisitedLabel">Date visited:</string>
+    <string name="siteDateVisitedLabel">Site visited</string>
     <string name="siteRatingLabel">Rating</string>
 
     <string name="siteDescriptionField">Enter description</string>
