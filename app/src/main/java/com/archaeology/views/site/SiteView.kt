@@ -114,7 +114,7 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
 
         fabMoreDelete.setOnClickListener {
             val builder = AlertDialog.Builder(this)
-            builder.setMessage("Are you sure you want to delete this Site?")
+            builder.setMessage("Confirm site deletion?")
             builder.setPositiveButton("Yes") { dialog, _ ->
                 presenter.doDelete()
                 dialog.dismiss()
@@ -132,9 +132,9 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
                     siteDescription.text.toString()
                 ).contains("")
             ) {
-                toast("Please fill out all fields")
+                toast("Needs at least the name and the description")
             } else if (siteVisited.isChecked && siteDateVisited.text.toString() == "") {
-                toast("Site is visited, please provide a date")
+                toast("Please provide a date")
             } else {
                 val tempSite = SiteModel()
                 tempSite.name = siteName.text.toString().trim()
@@ -152,7 +152,7 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
         siteAddNoteBtn.setOnClickListener {
             val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_note, null)
             val builder = AlertDialog.Builder(this)
-            builder.setMessage("Enter note details: ")
+            builder.setMessage("Enter note: ")
             builder.setView(mDialogView)
 
             val dialog: AlertDialog = builder.create()
@@ -164,11 +164,10 @@ class SiteView : BaseView(), NoteListener, AnkoLogger {
             val noteContent = dialog.findViewById(R.id.noteDialogContent) as? EditText
 
             addBtn.setOnClickListener {
-
                 if (listOf(noteTitle!!.text.toString(), noteContent!!.text.toString())
                         .contains("")
                 ) {
-                    toast("Please fill out all fields!")
+                    toast("Needs both title and content")
                 } else {
                     presenter.doAddNote(noteTitle.text.toString(), noteContent.text.toString())
                     dialog.dismiss()

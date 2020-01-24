@@ -75,7 +75,7 @@ class AccountView : BaseView(), AnkoLogger {
                         passwordConfirm?.text.toString()
                     ).contains(
                         ""
-                    ) -> toast("Please fill out all fields")
+                    ) -> toast("Please enter both fields")
                     password!!.text.toString() != passwordConfirm!!.text.toString() -> toast("Passwords do not match")
                     else -> {
                         presenter.doUpdatePassword(password.text.toString())

@@ -96,7 +96,6 @@ open class HomeView : AppCompatActivity(), AnkoLogger {
                     )
                 }
             }
-
             true
         }
     }

@@ -7,11 +7,9 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/splash_background"
-    android:id="@+id/splashContainer"
     tools:context=".views.splash.SplashActivity">
 
     <ImageView
-        android:id="@+id/splashImage"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/splash"

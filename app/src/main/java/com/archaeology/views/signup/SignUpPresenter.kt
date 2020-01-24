@@ -17,7 +17,7 @@ class SignUpPresenter(view: BaseView) : BasePresenter(view) {
                 if (task.isSuccessful) {
                     view?.navigateTo(VIEW.LOGIN)
                 } else {
-                    view?.toast("Sign Up Failed: ${task.exception?.message}")
+                    view?.toast("Sign up failed: ${task.exception?.message}")
                 }
             }
     }

@@ -20,7 +20,6 @@ class SplashActivity : AppCompatActivity() {
         )
         setContentView(R.layout.activity_splash)
 
-        // 4second splash time
         Handler().postDelayed({
             startActivity(Intent(this@SplashActivity, LoginView::class.java))
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)

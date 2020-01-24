@@ -41,7 +41,7 @@ class SignUpView : BaseView(), AnkoLogger {
             user.password = password1Text
             user.id = Random.nextInt()
             presenter.doSignup(user)
-            toast("Account created!")
+            toast("Please login with your new account")
         }
     }
 
@@ -55,7 +55,7 @@ class SignUpView : BaseView(), AnkoLogger {
 
         when {
             listOf(emailText, password1Text, password2Text).contains("") -> {
-                toast("Please fill out all fields")
+                toast("Please enter every fields")
                 hasErrors = true
             }
             password1Text != password2Text -> {
@@ -64,7 +64,7 @@ class SignUpView : BaseView(), AnkoLogger {
             }
 
             !isEmailValid(emailText) -> {
-                toast("Please enter a valid email")
+                toast("Email is not valid")
                 hasErrors = true
             }
         }

@@ -21,7 +21,6 @@
         tools:context=".views.site.SiteView">
 
         <LinearLayout
-            android:id="@+id/siteLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -29,7 +28,6 @@
             android:orientation="vertical">
 
             <View
-                android:id="@+id/siteImageDividerTop"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@drawable/divider" />
@@ -53,7 +51,6 @@
                 app:selectedDotColor="@color/colorPrimary" />
 
             <View
-                android:id="@+id/siteImageDividerBottom"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@drawable/divider" />
@@ -209,7 +206,6 @@
 
 
                 <TextView
-                    android:id="@+id/ratingMsg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"

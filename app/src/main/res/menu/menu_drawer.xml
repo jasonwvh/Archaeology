@@ -5,9 +5,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
-    <group
-        android:id="@+id/menu_top"
-        android:checkableBehavior="single">
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_sites"
             android:icon="@drawable/ic_visited"
@@ -23,9 +21,7 @@
 
     </group>
 
-    <group
-        android:id="@+id/menu_bottom"
-        android:checkableBehavior="single">
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_account"
             android:icon="@drawable/ic_menu_account"

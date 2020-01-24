@@ -28,7 +28,6 @@ import org.jetbrains.anko.uiThread
 import java.util.*
 
 class SitePresenter(view: BaseView) : BasePresenter(view) {
-
     private var site = SiteModel()
 
     var map: GoogleMap? = null
@@ -76,9 +75,7 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
 
     @SuppressLint("MissingPermission")
     fun doSetCurrentLocation() {
-
         locationService.lastLocation.addOnSuccessListener {
-            // uses google maps cache - if there is none location will return null
             if (it !== null) {
                 locationUpdate(it.latitude, it.longitude)
             }
@@ -127,7 +124,6 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
         }
     }
 
-
     fun doDelete() {
         doAsync {
             app.sites.deleteSite(site)
@@ -137,49 +133,10 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
         }
     }
 
-    fun doNext() {
-        val sites = app.sites.findAllSites()
-        val index = sites?.indexOf(site)
-        try {
-            view?.navigateTo(VIEW.SITE, 0, "site_edit", sites?.get(index!!.plus(1)))
-        } catch (e: IndexOutOfBoundsException) {
-            view?.toast("Next Site is Empty!")
-        }
-    }
-
-    fun doPrevious() {
-        val sites = app.sites.findAllSites()
-        val index = sites?.indexOf(site)
-        try {
-            view?.navigateTo(VIEW.SITE, 0, "site_edit", sites?.get(index!!.minus(1)))
-        } catch (e: IndexOutOfBoundsException) {
-            view?.toast("Previous Site is Empty!")
-        }
-    }
-
     fun doSelectImage() {
         view?.let {
             showImagePicker(view!!, IMAGE_REQUEST)
         }
-    }
-
-    fun doChooseCover(index: Int) {
-        when {
-            site.images.size == 0 -> {
-                view?.toast("No Images Exist!")
-            }
-            !edit -> {
-                view?.toast("Please Save The Site First")
-            }
-            else -> {
-                // swap indexes so chosen image appears in recycle-view (i.e. cover image)
-                site.images[0] =
-                    site.images[index].also { site.images[index] = site.images[0] }
-                view?.showImages(site.images)
-                view?.toast("Above Image Selected As Cover - Don't Forget To Save!")
-            }
-        }
-
     }
 
     fun doSetLocation() {
@@ -194,16 +151,16 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
 
     fun doFavourite() {
         if (site.fbId == "") {
-            view?.toast("Please Finish Creating The site")
+            view?.toast("Site needs to be created first")
         } else {
             site.isFavourite = !site.isFavourite
             app.sites.updateSite(site)
             app.sites.toggleFavourite(site)
             if (site.isFavourite) {
                 view?.fabMoreFavourite!!.setColorFilter(Color.rgb(255, 116, 216))
-                view?.toast("Added to Favourites - Don't forget to Save!")
+                view?.toast("Added to Favourites list")
             } else {
-                view?.toast("Removed from Favourites - Don't forget to Save!")
+                view?.toast("Removed from Favourites list")
                 view?.fabMoreFavourite!!.setColorFilter(Color.rgb(255, 255, 255))
             }
         }
@@ -256,10 +213,9 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
         when (requestCode) {
             IMAGE_REQUEST -> {
                 images.clear()
-                // if multiple images selected
                 if (data.clipData != null) {
                     if (data.clipData!!.itemCount > 4) {
-                        view?.toast("Exceeded maximum of 4 images")
+                        view?.toast("Please select up to 4 images only")
                     } else {
                         val mClipData = data.clipData
                         var counter = 0
@@ -272,7 +228,6 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
                             counter++
                         }
                     }
-                    // else add single image
                 } else {
                     val newImage = ImageModel()
                     newImage.uri = data.data.toString()
@@ -290,13 +245,11 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
                 locationUpdate(location.lat, location.lng)
             }
             IMAGE_CAPTURE_REQUEST -> {
-
                 val path = getCurrentImagePath()
                 if (path != null) {
                     if (site.images.size >= 4) {
-                        view?.toast("Only 4 images allowed!")
+                        view?.toast("Please select up to 4 images only")
                     } else {
-
                         val newImage = ImageModel()
                         newImage.uri = path
                         newImage.fbID = site.fbId

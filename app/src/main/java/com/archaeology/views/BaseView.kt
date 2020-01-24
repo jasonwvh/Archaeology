@@ -17,9 +17,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.auth.FirebaseUser
 import org.jetbrains.anko.AnkoLogger
 
-val IMAGE_REQUEST = 1
-val LOCATION_REQUEST = 2
-
 enum class VIEW {
     LOCATION, SITE, MAPS, LIST, SIGNUP, MAIN, LOGIN
 }

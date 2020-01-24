@@ -54,7 +54,7 @@ class LoginView : BaseView(), AnkoLogger {
                 passwordText
             ).contains("")
         ) {
-            toast("Please fill out all fields")
+            toast("Please enter the correct details")
         } else {
             presenter.doLogin(usernameText, passwordText)
         }

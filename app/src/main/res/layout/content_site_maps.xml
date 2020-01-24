@@ -38,7 +38,6 @@
         app:layout_constraintTop_toBottomOf="@+id/mapView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/maps_current_site"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
