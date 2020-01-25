@@ -37,6 +37,7 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
     private var images: ArrayList<ImageModel> = arrayListOf()
 
     private var edit = false
+    private var first_time = true
 
     private val IMAGE_REQUEST = 1
     private val LOCATION_REQUEST = 2
@@ -48,17 +49,19 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
 
     init {
         if (view.intent.hasExtra("site_edit")) {
+            edit = true
             site = view.intent.extras?.getParcelable("site_edit")!!
+
             notes = site.notes
             images = site.images
             view.showSite(site)
 
-            edit = true
-
-
         } else {
             if (checkLocationPermissions(view)) {
-                doSetCurrentLocation()
+                if (first_time) {
+                    doSetCurrentLocation()
+                    first_time = false
+                }
             }
         }
     }
@@ -69,7 +72,10 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
         grantResults: IntArray
     ) {
         if (isPermissionGranted(requestCode, grantResults)) {
-            doSetCurrentLocation()
+            if (first_time) {
+                doSetCurrentLocation()
+                first_time = false
+            }
         }
     }
 
@@ -94,7 +100,10 @@ class SitePresenter(view: BaseView) : BasePresenter(view) {
             }
         }
         if (!edit) {
-            locationService.requestLocationUpdates(locationRequest, locationCallback, null)
+            if (first_time) {
+                locationService.requestLocationUpdates(locationRequest, locationCallback, null)
+                first_time = false
+            }
         }
     }
 

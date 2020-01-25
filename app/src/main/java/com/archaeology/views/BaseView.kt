@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser
 import org.jetbrains.anko.AnkoLogger
 
 enum class VIEW {
-    LOCATION, SITE, MAPS, LIST, SIGNUP, MAIN, LOGIN
+    LOCATION, SITE, MAPS, LIST, SIGNUP, HOME, LOGIN
 }
 
 abstract class BaseView : HomeView(), AnkoLogger {
@@ -32,7 +32,7 @@ abstract class BaseView : HomeView(), AnkoLogger {
             VIEW.MAPS -> Intent(this, SiteMapsView::class.java)
             VIEW.LIST -> Intent(this, SiteListView::class.java)
             VIEW.SIGNUP -> Intent(this, SignUpView::class.java)
-            VIEW.MAIN -> Intent(this, HomeView::class.java)
+            VIEW.HOME -> Intent(this, HomeView::class.java)
             VIEW.LOGIN -> Intent(this, LoginView::class.java)
         }
         if (key != "") {

@@ -30,12 +30,12 @@ class LoginPresenter(view: BaseView) : BasePresenter(view) {
                     doAsync {
                         fireStore!!.fetchSites {
                             view?.hideProgress()
-                            view?.navigateTo(VIEW.MAIN, 0, "user", auth.currentUser)
+                            view?.navigateTo(VIEW.HOME, 0, "user", auth.currentUser)
                         }
                     }
                 } else {
                     view?.hideProgress()
-                    view?.navigateTo(VIEW.MAIN)
+                    view?.navigateTo(VIEW.HOME)
                 }
             } else {
                 view?.hideProgress()
