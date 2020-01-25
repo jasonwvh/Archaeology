@@ -1,8 +1,8 @@
 package com.archaeology.main
 
 import android.app.Application
-import com.archaeology.models.site.SiteFireStore
-import com.archaeology.models.site.SiteStore
+import com.archaeology.helpers.readImageFromPath
+import com.archaeology.models.site.*
 import com.archaeology.models.user.UserFireStore
 import com.archaeology.models.user.UserStore
 import com.google.firebase.auth.FirebaseUser
@@ -19,6 +19,6 @@ class MainApp : Application(), AnkoLogger {
     super.onCreate()
     sites = SiteFireStore(applicationContext)
     users = UserFireStore(applicationContext)
-    info("Site started")
+    info("ArchBuddy started")
   }
 }

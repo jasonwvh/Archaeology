@@ -9,7 +9,8 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity
 data class SiteModel(
-    @PrimaryKey(autoGenerate = true) var id: Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0,
     var fbId: String = "",
     var name: String = "",
     var description: String = "",
@@ -48,5 +49,4 @@ data class ImageModel(
     var fbID: String = "",
     var uri: String = ""
 ) : Parcelable
-
 
