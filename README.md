@@ -3,8 +3,8 @@ Mobile Application created for Android Programming with Kotlin class.
 Concept is to help archaeology students discover new sites.
 
 # User Interface
-![img2](img2.jpg)
 ![img1](img1.jpg)
+![img2](img2.jpg)
 
 # Features:
 - Site List
